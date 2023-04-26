@@ -1,0 +1,113 @@
+.container {
+    width: 500px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+}
+
+.weather__app {
+    min-height: 500px;
+    max-width: 300px;
+    /* border: 1px solid black; */
+    padding: 10px;
+    background-color: rgb(77, 93, 243);
+}
+
+.weahter__condition-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.weather__forecast-now {
+    display: flex;
+    gap: 14px;
+}
+
+.temp__now-degrs {
+    display: block;
+    margin-top: 10px;
+    font-size: 45px;
+    color: #ffff;
+}
+
+.temp__now-degrs {
+    margin-bottom: 20px;
+}
+
+.weather__condition-now {}
+
+.wth__cond--nowImage {}
+
+.search__city {
+    display: flex;
+    /* border: 1px solid black; */
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.search__input {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.search__input::placeholder {
+    text-align: center;
+    font-size: 17px;
+}
+
+.btn {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    /* border: 1px solid red; */
+}
+
+.today__date {
+    color: #fff;
+    font-size: 24px;
+}
+
+.slide__container {
+    /* overflow-x: auto; */
+}
+
+.arrow {}
+
+.slider {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.weather__condition {
+    flex: 0 0 auto;
+    width: 80px;
+    /* or any other width you want each element to have */
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.temp__degrs {}
+
+.degrs {}
+
+.time {}
+
+.time__hourly {}
