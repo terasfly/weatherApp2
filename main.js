@@ -29,14 +29,14 @@ window.onload = () => {
                 tempNow.textContent = dataTempNow;
                 // get current weather condition from location
 
-                const dataCondNow = data.current.condition.icon
-                    // replace link to link which need for me
-                const dataCondNowReplace = dataCondNow.replace('//cdn.weatherapi.com/weather', 'images')
-                console.log(dataCondNowReplace)
-                    // too current location add new image
-                nowImage.setAttribute('src', dataCondNowReplace);
+                // const dataCondNow = data.current.condition.icon
+                //     // replace link to link which need for me
+                // const dataCondNowReplace = dataCondNow.replace('//cdn.weatherapi.com/weather', 'images')
+                // console.log(dataCondNowReplace)
+                //     // too current location add new image
+                // nowImage.setAttribute('src', dataCondNowReplace);
 
-
+                getIconOfWeather(data)
 
 
 
@@ -51,6 +51,7 @@ btn.addEventListener('click', () => {
     const searchCity = document.getElementById('search__city').value
 
     console.log(searchCity)
+        // getIconOfWeather()
 
     const url2 = `https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${searchCity}`;
     fetch(url2)
@@ -61,14 +62,15 @@ btn.addEventListener('click', () => {
             city.textContent = cityName;
             dataTempNow = data.current.temp_c
             tempNow.textContent = dataTempNow;
+            getIconOfWeather(data)
 
 
-            const dataCurrentNow = data.current.condition.icon
-                // replace link to link which need for me
-            const dataCurrentNowReplace = dataCurrentNow.replace('//cdn.weatherapi.com/weather', 'images')
-            console.log(dataCurrentNowReplace)
-                // too current location add new image
-            nowImage.setAttribute('src', dataCurrentNowReplace);
 
         })
 })
+
+function getIconOfWeather(data) {
+    const getIcon = data.current.condition.icon
+    const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
+    nowImage.setAttribute('src', replace);
+}
