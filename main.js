@@ -51,4 +51,24 @@ btn.addEventListener('click', () => {
     const searchCity = document.getElementById('search__city').value
 
     console.log(searchCity)
+
+    const url2 = `https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${searchCity}`;
+    fetch(url2)
+        .then((Response) => Response.json())
+        .then((data) => {
+            console.log(url2)
+            cityName = data.location.name;
+            city.textContent = cityName;
+            dataTempNow = data.current.temp_c
+            tempNow.textContent = dataTempNow;
+
+
+            const dataCurrentNow = data.current.condition.icon
+                // replace link to link which need for me
+            const dataCurrentNowReplace = dataCurrentNow.replace('//cdn.weatherapi.com/weather', 'images')
+            console.log(dataCurrentNowReplace)
+                // too current location add new image
+            nowImage.setAttribute('src', dataCurrentNowReplace);
+
+        })
 })
