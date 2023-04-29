@@ -10,7 +10,7 @@
 }
 
 .container {
-    min-height: 550px;
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,14 +19,14 @@
 }
 
 .city {
-    margin-top: 45px;
+    margin: 30 0px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     padding: 10px
 }
 
 .weather__app {
-    height: 100vh;
+    height: 700px;
     width: 394px;
     /* border: 1px solid black; */
     padding: 10px;
@@ -42,6 +42,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .weather__forecast-now {
@@ -89,6 +90,7 @@
     width: 180px;
     color: black;
     margin-top: 14px;
+    margin-bottom: 20px;
 }
 
 .search__input::placeholder {
@@ -107,10 +109,9 @@
 }
 
 .btn {
-    padding: 5px;
     width: 50px;
     margin-top: 3px;
-    font-size: 15px;
+    font-size: 25px;
     padding: 5px;
     background-color: rgb(243, 239, 9);
     outline: 0;
@@ -119,7 +120,7 @@
     color: #ffff;
     cursor: pointer;
     margin-top: 20px;
-    color: #63b2c8;
+    color: #fff;
     font-weight: 700;
 }
 
@@ -147,7 +148,7 @@
     display: flex;
     width: 70%;
     overflow-x: auto;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
 .weather__condition {
