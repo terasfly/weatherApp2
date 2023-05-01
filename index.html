@@ -1,4 +1,4 @@
-
+<body>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -14,8 +14,7 @@
         <link rel="stylesheet" href="style.css">
         <title>Weather App</title>
 
-<script defer src="main.js"></script>      
- </head>
+    </head>
 
     <body>
         <div class="container">
@@ -25,10 +24,10 @@
                     <div class="weather__forecast-now">
 
                         <div class="temp__now">
-                            <span class="temp__now-degrs" id="temp__now-degrs">1</span>
+                            <span class="temp__now-degrs" id="temp__now-degrs">&176;<span>
                         </div>
                         <div class="weather__condition-image">
-                            <img class="wth__cond--nowImage" id="weahter__condition-nowImage" src="images/64x64/day/365.png" alt="wheater condition">
+                            <img class="wth__cond--nowImage" id="weahter__condition-nowImage" src="" alt="wheater condition">
                         </div>
                     </div>
 
@@ -40,128 +39,86 @@
                         GO
                     </button>
                 </div>
-                <div class="date">
-                    <h2>Today</h2>
-                    <span class="today__date" id="today__date">26/04/23</span>
-                </div>
-
-                <!-- <img id="slide-left" class="arrow" src="images/64x64/arrow-left.png" width="50px" height="50px" />
-                <div class="slide__container"> -->
-
-                <div class="slider">
-                    <div class="weather__condition">
-                        <p><span class="temp__degrs">10</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
+               
+                    <div class="date">
+                        <h2 class="today">Today</h2>
+                        <div>
+                            <span class="today__date" id="today__date">26/04/23</span>
+                        </div>
+                        <div>
+                            <span class="today__time" id="time__date">00:00:00</span>
+                        </div>
                     </div>
 
-                </div>
-                <div class="weather__condition">
-                    <p><span class="temp__degrs">10</p>
 
-                        <img src="images/64x64/day/113.png" alt="weather condition">
+                    <!-- <img id="slide-left" class="arrow" src="images/64x64/arrow-left.png" width="50px" height="50px" />
+                <div class="slide__container"> -->
 
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
+                    <div class="slider">
+                        <div class="weather__condition">
+                            <p><span class="temp__degrs">10</span></p>
+                            <img class="firstBlockImage" src="images/64x64/day/113.png" alt="weather condition">
+                            <div class="time">
+                                <span class="time__hourly zero">00:00</span>
+                            </div>
+                        </div>
+                        <div class="weather__condition">
+                            <p><span class="temp__degrs">10</span></p>
+                            <img class="firstBlockImage" src="images/64x64/day/113.png" alt="weather condition">
+                            <div class="time">
+                                <span class="time__hourly zero">00:00</span>
+                            </div>
+                        </div>
+                        <div class="weather__condition">
+                            <p><span class="temp__degrs">10</span></p>
+                            <img class="firstBlockImage" src="images/64x64/day/113.png" alt="weather condition">
+                            <div class="time">
+                                <span class="time__hourly zero">00:00</span>
+                            </div>
+                        </div>
+                        <div class="weather__condition">
+                            <p><span class="temp__degrs">10</span></p>
+                            <img class="firstBlockImage" src="images/64x64/day/113.png" alt="weather condition">
+                            <div class="time">
+                                <span class="time__hourly zero">00:00</span>
+                            </div>
+                        </div>
+                        <div class="weather__condition">
+                            <p><span class="temp__degrs">10</span></p>
+                            <img class="firstBlockImage" src="images/64x64/day/113.png" alt="weather condition">
+                            <div class="time">
+                                <span class="time__hourly zero">00:00</span>
+                            </div>
+                        </div>
+                        <div class="weather__condition">
+                            <p><span class="temp__degrs">10</span></p>
+                            <img class="firstBlockImage" src="images/64x64/day/113.png" alt="weather condition">
+                            <div class="time">
+                                <span class="time__hourly zero">00:00</span>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
                 </div>
+                <!-- <img id="slide-right" class="arrow" src="images/64x64/arrow-right.png" width="50px" height="50px" /> -->
 
             </div>
-            <div class="weather__condition">
-                <p><span class="temp__degrs">10</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-            </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        <div class="weather__condition">
-            <p><span class="temp__degrs">0</p>
-
-                        <img src="images/64x64/day/113.png" alt="weather condition">
-
-                        <div class="time">
-                            <span class="time__hourly">00:00</span>
-        </div>
-
-        </div>
-        </div>
-        <!-- <img id="slide-right" class="arrow" src="images/64x64/arrow-right.png" width="50px" height="50px" /> -->
-
-        </div>
 
 
 
         </div>
 
 
-        
+        <script src="main.js"></script>
+    </body>
 
-    
+    </html>
 
 </body>
 
