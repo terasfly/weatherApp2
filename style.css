@@ -171,6 +171,11 @@ body {
     font-size: 21px;
     color: #efff00;
 }
+#time__date::before {
+    /* display: block; */
+    content: url('images/211606_clock_icon.svg');
+    padding: 5px;
+}
 
 .slide__container {
     /* overflow-x: auto; */
