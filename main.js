@@ -11,18 +11,19 @@ const tempDegres = document.querySelector('.temp__degrs')
 const btn = document.getElementById('btn')
 
 
+// const weahterCondition = document.querySelectorAll('.weather__condition')
+const temp1 = document.querySelector('.temp--1')
 
+const tempDegrs = document.querySelectorAll('.temp__degrs');
+const timeHourly = document.querySelectorAll('.time__hourly')
+let imagesElements = document.querySelectorAll('.images')
 
-const firstBlockImage = document.querySelector('.firstBlockImage')
-
-
-
+// Update temperature for each hour
 
 
 
 
 window.onload = () => {
-
 
 
 
@@ -35,7 +36,10 @@ window.onload = () => {
         fetch(url)
             .then((Response) => Response.json())
             .then((data) => {
-                updateHour(0, document.querySelector('.time__hourly'), firstBlockImage, tempDegres, data);
+
+
+
+
 
 
                 // load page get location
@@ -52,6 +56,9 @@ window.onload = () => {
                 getIconOfWeather(data)
                 today(data)
                 time(data)
+                temperature(data)
+                times(data)
+                images(data)
 
 
 
@@ -74,6 +81,7 @@ btn.addEventListener('click', () => {
         .then((Response) => Response.json())
         .then((data) => {
 
+
             console.log(url2)
             cityName = data.location.name;
             city.textContent = cityName;
@@ -82,6 +90,9 @@ btn.addEventListener('click', () => {
             getIconOfWeather(data)
             today(data)
             time(data)
+            temperature(data)
+            times(data)
+            images(data)
 
 
         })
@@ -105,18 +116,6 @@ function today(data) {
 
 
 
-function updateHour(hourIndex, timeElement, imageElement, tempElement, data) {
-    const hour = data.forecast.forecastday[0].hour[hourIndex];
-    const justTime = hour.time.split(' ')[1];
-    timeElement.textContent = justTime;
-
-    const image = hour.condition.icon.replace('//cdn.weatherapi.com/weather', 'images');
-    imageElement.setAttribute('src', image);
-
-    const temp = hour.temp_c;
-    console.log(temp);
-    tempElement.textContent = temp;
-}
 
 function time(data) {
     const getLiveTime = data.location.localtime
@@ -124,4 +123,41 @@ function time(data) {
     const localTime = getLiveTime.split(' ')[1]
     console.log(localTime)
     liveTime.textContent = localTime
+}
+
+function temperature(data) {
+    for (let i = 0; i < 24; i++) {
+        const hour = data.forecast.forecastday[0].hour[i];
+        console.log(hour)
+        const temp = hour.temp_c;
+        const math = Math.round(temp)
+        console.log(temp)
+        tempDegrs[i].textContent = math;
+    }
+}
+
+function times(data) {
+    for (let i = 0; i < 24; i++) {
+        const timehour = data.forecast.forecastday[0].hour[i];
+        // console.log(hour)
+        const realTime = timehour.time;
+        const corectTime = realTime.split(' ')[1]
+
+        timeHourly[i].textContent = corectTime;
+    }
+}
+
+
+
+function images(data) {
+    const imagesElements = document.querySelectorAll('.images');
+
+    for (let i = 0; i < 24; i++) {
+        const currentImage = data.forecast.forecastday[0].hour[i];
+        const realTimes = currentImage.condition.icon;
+        console.log(realTimes)
+        const cutRealtimes = realTimes.substring(35)
+        console.log(cutRealtimes)
+        imagesElements[i].setAttribute('src', `images/64x64/${cutRealtimes}`);
+    }
 }
