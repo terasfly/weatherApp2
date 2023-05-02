@@ -205,6 +205,15 @@ body {
     position: relative;
 }
 
+.temp__degrs::after {
+    content: '°';
+    position: absolute;
+    bottom: 13%;
+    left: 126%;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+}
+
 .degrs {
     position: absolute;
     top: 0;
