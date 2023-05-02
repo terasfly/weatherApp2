@@ -180,7 +180,7 @@ body {
 
 .slider {
     display: flex;
-    width: 70%;
+    width: 100%;
     overflow-x: auto;
     margin: 30px auto;
 }
