@@ -17,6 +17,7 @@ const temp1 = document.querySelector('.temp--1')
 const tempDegrs = document.querySelectorAll('.temp__degrs');
 const timeHourly = document.querySelectorAll('.time__hourly')
 let imagesElements = document.querySelectorAll('.images')
+const weatherCondition = document.querySelectorAll('.weather__condition')
 
 // Update temperature for each hour
 
@@ -115,35 +116,55 @@ function today(data) {
 }
 
 
-
+// location current time
 
 function time(data) {
     const getLiveTime = data.location.localtime
-    console.log(getLiveTime)
+        // console.log(getLiveTime)
     const localTime = getLiveTime.split(' ')[1]
-    console.log(localTime)
+        // console.log(localTime)
     liveTime.textContent = localTime
 }
 
+// temperature of location
 function temperature(data) {
     for (let i = 0; i < 24; i++) {
         const hour = data.forecast.forecastday[0].hour[i];
-        console.log(hour)
+        // console.log(hour)
         const temp = hour.temp_c;
         const math = Math.round(temp)
-        console.log(temp)
+            // console.log(temp)
         tempDegrs[i].textContent = math;
+        // console.log(tempDegres)
     }
 }
 
+
 function times(data) {
+    const timeNow = new Date();
+    console.log(timeNow);
+    const getHour = timeNow.getHours();
+    console.log(getHour);
+
     for (let i = 0; i < 24; i++) {
+
         const timehour = data.forecast.forecastday[0].hour[i];
         // console.log(hour)
         const realTime = timehour.time;
-        const corectTime = realTime.split(' ')[1]
+        console.log(realTime)
+        const realtime2 = realTime.split(' ')[1]
+        const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
+        console.log(corectTime)
 
-        timeHourly[i].textContent = corectTime;
+        if (corectTime < getHour) {
+            weatherCondition[i].style.display = 'none';
+        } else {
+            weatherCondition[i].style.display = 'block';
+        }
+
+
+        timeHourly[i].textContent = realtime2;
+        console.log(timeHourly)
     }
 }
 
