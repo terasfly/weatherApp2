@@ -10,20 +10,20 @@
 }
 
 body {
-    background: url('images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg');
+    /* background: url('images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg');
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100vh; */
 }
 
 .container {
-    height: 700px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     /* border: 1px solid red; */
-    margin: 35px auto;
+    /* margin: 35px auto; */
 }
 
 .city {
@@ -34,17 +34,17 @@ body {
 }
 
 .weather__app {
-    min-height: 700px;
+    min-height: 100vh;
     width: 394px;
     /* border: 1px solid black; */
     padding: 7px;
-    background: rgb(77, 93, 243);
+    /* background: rgb(77, 93, 243); */
     background-color: #3b5cec;
     background-image: linear-gradient(0deg, #202c60 0%, #40acbe 100%);
     border-radius: 5px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     padding-bottom: 40px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .weahter__condition-now {
@@ -69,6 +69,15 @@ body {
 }
 
 .temp__now-degrs::after {
+    content: '°';
+    position: absolute;
+    bottom: 13%;
+    left: 126%;
+    font-size: 29px;
+    transform: translate(-50%, -50%);
+}
+
+.temp__now-degrs2::after {
     content: '°';
     position: absolute;
     bottom: 13%;
@@ -171,9 +180,10 @@ body {
     font-size: 21px;
     color: #efff00;
 }
+
 #time__date::before {
     /* display: block; */
-    content: url('images/64x64/day/clock.svg');
+    content: url('images/211606_clock_icon.svg');
     padding: 5px;
 }
 
