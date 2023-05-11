@@ -1,5 +1,5 @@
 const city = document.getElementById('city');
-const api = '497bea2e477443d8bb185600232504';
+const api = 'd54569a31e13474ab52230238231105';
 const tempNow = document.getElementById('temp__now-degrs')
 let nowImage = document.getElementById('weahter__condition-nowImage')
 const liveTime = document.getElementById('time__date')
