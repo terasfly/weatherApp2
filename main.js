@@ -243,7 +243,7 @@ function temperature2(data) {
         // forecast.forecastday[1].hour[4].temp_c
         // console.log(hour)
         let temp = hour.temp_c;
-        temp += 3;
+        temp += 2;
         const math = Math.trunc(temp)
             // console.log(temp)
         tempDegrs2[i].textContent = math;
