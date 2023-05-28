@@ -133,10 +133,10 @@ btn.addEventListener('click', () => {
 //     nowImage.setAttribute('src', replace);
 // }
 
-const backgroundWeather = {
-    Sunny: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg',
-    overcast: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg'
-}
+// const backgroundWeather = {
+//     Sunny: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg',
+//     overcast: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg'
+// }
 
 function getIconOfWeather(data) {
     // changeBackground.style.backgroundPosition = "center";
@@ -147,18 +147,18 @@ function getIconOfWeather(data) {
     const getIcon = data.current.condition.icon;
     const getWeatherConditionBackground = data.current.condition.text;
 
-    switch (getWeatherConditionBackground) {
-        case 'Sunny':
-            changeBackground.style.background = `url(${backgroundWeather.Sunny}) center/cover no-repeat`;
-            break;
-        case 'Overcast':
-            changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
-            break;
-            // Add more cases for other weather conditions if needed
-        default:
-            // Handle the default case or fallback image
-            break;
-    }
+    // switch (getWeatherConditionBackground) {
+    //     case 'Sunny':
+    //         changeBackground.style.background = `url(${backgroundWeather.Sunny}) center/cover no-repeat`;
+    //         break;
+    //     case 'Overcast':
+    //         changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
+    //         break;
+    //         // Add more cases for other weather conditions if needed
+    //     default:
+    //         // Handle the default case or fallback image
+    //         break;
+    // }
 
     const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
     nowImage.setAttribute('src', replace);
