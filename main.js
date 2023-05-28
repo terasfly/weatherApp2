@@ -222,7 +222,8 @@ function temperature(data) {
 
         // console.log(hour)
         let temp = hour.temp_c;
-        temp += 3;
+        temp += 2;
+
         const math = Math.round(temp)
             // console.log(temp)
         tempDegrs[i].textContent = math;
