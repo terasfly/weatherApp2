@@ -16,13 +16,16 @@ const temp1 = document.querySelector('.temp--1')
 
 const tempDegrs = document.querySelectorAll('.temp__degrs');
 const tempDegrs2 = document.querySelectorAll('.temp__degrs2');
+const tempDegrs3 = document.querySelectorAll('.temp__degrs3');
 const timeHourly = document.querySelectorAll('.time__hourly')
 const timeHourly2 = document.querySelectorAll('.time__hourly2')
+const timeHourly3 = document.querySelectorAll('.time__hourly3')
     // let imagesElements = document.querySelectorAll('.images')
     // let imagesElements2 = document.querySelectorAll('.images2')
 const weatherCondition = document.querySelectorAll('.weather__condition')
 
 const changeBackground = document.getElementById("change__backgr")
+const tomoroDate = document.getElementById('tomorow--date')
     // Update temperature for each hour
 
 
@@ -71,8 +74,11 @@ window.onload = () => {
                 images(data)
                 temperature2(data)
                 times2(data)
+                times3(data)
                 images2(data)
-
+                images3(data)
+                temperature3(data)
+                tomorowDate(data)
 
 
 
@@ -115,7 +121,10 @@ btn.addEventListener('click', () => {
             images(data)
             temperature2(data)
             times2(data)
+            times3(data)
             images2(data)
+            temperature3(data)
+            tomorowDate(data)
 
 
         })
@@ -176,6 +185,12 @@ function today(data) {
 
 }
 
+function tomorowDate(data) {
+    const getTomorowDate = data.forecast.forecastday[1].date
+    console.log(getTomorowDate)
+    tomoroDate.textContent = getTomorowDate
+}
+
 
 // location current time
 
@@ -222,7 +237,7 @@ function temperature(data) {
 
         // console.log(hour)
         let temp = hour.temp_c;
-        temp += 1;
+        temp += 1.3;
 
         const math = Math.round(temp)
             // console.log(temp)
@@ -243,10 +258,26 @@ function temperature2(data) {
         // forecast.forecastday[1].hour[4].temp_c
         // console.log(hour)
         let temp = hour.temp_c;
-        temp += 2;
-        const math = Math.trunc(temp)
+        temp += 1;
+        console.log(temp)
+        const math = Math.round(temp)
             // console.log(temp)
         tempDegrs2[i].textContent = math;
+        // console.log(tempDegres)
+    }
+}
+
+function temperature3(data) {
+    for (let i = 0; i < 24; i++) {
+        const hour = data.forecast.forecastday[1].hour[i];
+        // forecast.forecastday[1].hour[4].temp_c
+        // console.log(hour)
+        let temp = hour.temp_c;
+        temp += 1;
+        console.log(temp)
+        const math = Math.round(temp)
+            // console.log(temp)
+        tempDegrs3[i].textContent = math;
         // console.log(tempDegres)
     }
 }
@@ -310,6 +341,34 @@ function times2(data) {
     }
 }
 
+function times3(data) {
+    // const timeNow = new Date();
+    // console.log(timeNow);
+    // const getHour = timeNow.getHours();
+    // console.log(getHour);
+
+    for (let i = 0; i < 24; i++) {
+
+        const timehour2 = data.forecast.forecastday[1].hour[i];
+        // console.log(hour)
+        const realTime = timehour2.time;
+        // console.log(realTime)
+        const realtime2 = realTime.split(' ')[1]
+            // const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
+            // console.log(corectTime)
+
+        // if (corectTime < getHour) {
+        //     weatherCondition[i].style.display = 'none';
+        // } else {
+        //     weatherCondition[i].style.display = 'block';
+        // }
+
+
+        timeHourly3[i].textContent = realtime2;
+        // console.log(timeHourly)
+    }
+}
+
 
 
 function images(data) {
@@ -334,6 +393,19 @@ function images2(data) {
         const cutRealtimes2 = realTimes.substring(35)
             // console.log(cutRealtimes2)
         imagesElements2[x].setAttribute('src', `images/64x64/${cutRealtimes2}`);
+        // console.log(imagesElements2[x])
+    }
+}
+
+function images3(data) {
+    const imagesElements3 = document.querySelectorAll('.images3');
+    for (let x = 0; x < 24; x++) {
+        const currentImage = data.forecast.forecastday[1].hour[x];
+        const realTimes = currentImage.condition.icon;
+        // console.log(realTimes)
+        const cutRealtimes2 = realTimes.substring(35)
+            // console.log(cutRealtimes2)
+        imagesElements3[x].setAttribute('src', `images/64x64/${cutRealtimes2}`);
         // console.log(imagesElements2[x])
     }
 }
