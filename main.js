@@ -1,271 +1,411 @@
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                            list-style: none;
-                            text-decoration: none;
-                            text-align: center;
-                            font-family: 'Shantell Sans', cursive;
-                            color: #fff;
-                        }
-                        
-                        body {
-                            background: url('images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg');
-                        }
-                        
-                        .container {
-                            height: 100vh;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            /* border: 1px solid red; */
-                            /* margin: 35px auto; */
-                        }
-                        
-                        #change__backgr {
-                            background-position: center;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            /* height: 100vh; */
-                        }
-                        
-                        .city {
-                            margin: 30px 0;
-                            text-transform: uppercase;
-                            letter-spacing: 1.5px;
-                            padding: 10px
-                        }
-                        
-                        .weather__app {
-                            min-height: 700px;
-                            width: 394px;
-                            /* border: 1px solid black; */
-                            padding: 7px;
-                            /* background: rgb(77, 93, 243); */
-                            background-color: #3b5cec;
-                            background-image: linear-gradient(0deg, #202c60 0%, #40acbe 100%);
-                            background-repeat: no-repeat;
-                            border-radius: 5px;
-                            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-                            padding-bottom: 40px;
-                            /* margin-top: 50px; */
-                        }
-                        
-                        .weahter__condition-now {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            flex-direction: column;
-                            padding-bottom: 20px;
-                        }
-                        
-                        .weather__forecast-now {
-                            display: flex;
-                            gap: 20px;
-                        }
-                        
-                        .temp__now-degrs {
-                            display: block;
-                            margin-top: 10px;
-                            font-size: 45px;
-                            color: #ffff;
-                            position: relative;
-                        }
-                        
-                        .temp__now-degrs::after {
-                            content: '°';
-                            position: absolute;
-                            bottom: 13%;
-                            left: 126%;
-                            font-size: 29px;
-                            transform: translate(-50%, -50%);
-                        }
-                        
-                        .temp__now-degrs2::after {
-                            content: '°';
-                            position: absolute;
-                            bottom: 13%;
-                            left: 126%;
-                            font-size: 29px;
-                            transform: translate(-50%, -50%);
-                        }
-                        
-                        .weather__condition-image {
-                            margin-left: 10px;
-                        }
-                        /* Style the container element */
-                        
-                        .search__city {
-                            position: relative;
-                            display: inline-block;
-                            margin: 20px;
-                        }
-                        /* Style the search input */
-                        
-                        .search__input {
-                            padding: 10px 20px;
-                            border: none;
-                            border-radius: 30px;
-                            font-size: 17px;
-                            width: 286px;
-                            background-color: #f8f8f8;
-                            transition: all 0.3s cubic-bezier(0.42, 0, 0.51, 0.57);
-                            color: #5063b6
-                        }
-                        /* Style the search icon */
-                        
-                        .search__input::placeholder {
-                            color: #aaa;
-                            font-weight: bold;
-                        }
-                        /* Style the input on focus */
-                        
-                        .search__input:focus {
-                            outline: none;
-                            background-color: #fffafa;
-                            box-shadow: 0px 0px 10px 0px rgba(0, 123, 255, 0.2);
-                        }
-                        /* Style the search icon on hover */
-                        
-                        .search__input:hover {
-                            background-color: #f0f0f0;
-                        }
-                        
-                        .search_x::-webkit-search-cancel-button {
-                            -webkit-appearance: none;
-                            height: 0;
-                            width: 0;
-                            padding: 0;
-                            margin: 0;
-                            border: none;
-                        }
-                        
-                        .btn {
-                            width: 50px;
-                            margin-top: 3px;
-                            font-size: 25px;
-                            padding: 5px;
-                            background-color: rgb(243, 239, 9);
-                            outline: 0;
-                            border-radius: 28% 72% 62% 38% / 30% 31% 69% 70%;
-                            border: none;
-                            color: #ffff;
-                            cursor: pointer;
-                            margin-top: 20px;
-                            color: #fff;
-                            font-weight: 700;
-                        }
-                        
-                        .date {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            gap: 20px;
-                            /* border: 1px solid red; */
-                        }
-                        
-                        .today__date {
-                            color: #fff;
-                            font-size: 24px;
-                        }
-                        
-                        .today__time {
-                            font-size: 21px;
-                            color: #efff00;
-                        }
-                        
-                        #time__date::before {
-                            /* display: block; */
-                            content: url('images/211606_clock_icon.svg');
-                            padding: 5px;
-                        }
-                        
-                        .slider {
-                            display: flex;
-                            width: 100%;
-                            overflow-x: auto;
-                            margin: 30px auto;
-                        }
-                        
-                        .slider2 {
-                            display: flex;
-                            width: 100%;
-                            overflow-x: auto;
-                            margin: 30px auto;
-                            padding-bottom: 20px;
-                            margin-bottom: 50px;
-                        }
-                        
-                        #tomorow--date {
-                            padding-top: 20px;
-                        }
-                        
-                        .weather__condition {
-                            /* display: flex; */
-                            /* flex-direction: column; */
-                            gap: 16px;
-                            flex: 0 0 auto;
-                            width: 53px;
-                            margin-right: 22px;
-                            margin-bottom: 20px;
-                            margin-top: 20px;
-                            font-size: 22px;
-                            align-items: center;
-                            justify-content: center;
-                            margin-left: 13px;
-                        }
-                        
-                        .temp__degrs {
-                            padding-top: 14px;
-                            position: relative;
-                        }
-                        
-                        .temp__degrs::after {
-                            content: '°';
-                            position: absolute;
-                            bottom: 13%;
-                            left: 126%;
-                            font-size: 15px;
-                            transform: translate(-50%, -50%);
-                        }
-                        
-                        .temp__degrs3 {
-                            padding-top: 14px;
-                            position: relative;
-                        }
-                        
-                        .temp__degrs3::after {
-                            content: '°';
-                            position: absolute;
-                            bottom: 13%;
-                            left: 126%;
-                            font-size: 15px;
-                            transform: translate(-50%, -50%);
-                        }
-                        
-                        .sliders {
-                            margin-bottom: 50px;
-                        }
-                        
-                        .degrs {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            font-size: 29px;
-                            /* transform: translate(-50%, -50%); */
-                        }
-                        
-                        .temp__degrs2 {
-                            padding-top: 14px;
-                            position: relative;
-                        }
-                        
-                        .temp__degrs2 ::after {
-                            content: '°';
-                            position: absolute;
-                            bottom: 13%;
-                            left: 126%;
-                            font-size: 15px;
-                            transform: translate(-50%, -50%);
-                        }
+const city = document.getElementById('city');
+const api = '6bbb6ab5e77e49599f382024232805';
+const tempNow = document.getElementById('temp__now-degrs')
+let nowImage = document.getElementById('weahter__condition-nowImage')
+const liveTime = document.getElementById('time__date')
+
+const todayDate = document.getElementById('today__date')
+
+const tempDegres = document.querySelector('.temp__degrs')
+
+const btn = document.getElementById('btn')
+
+
+// const weahterCondition = document.querySelectorAll('.weather__condition')
+const temp1 = document.querySelector('.temp--1')
+
+const tempDegrs = document.querySelectorAll('.temp__degrs');
+const tempDegrs2 = document.querySelectorAll('.temp__degrs2');
+const tempDegrs3 = document.querySelectorAll('.temp__degrs3');
+const timeHourly = document.querySelectorAll('.time__hourly')
+const timeHourly2 = document.querySelectorAll('.time__hourly2')
+const timeHourly3 = document.querySelectorAll('.time__hourly3')
+    // let imagesElements = document.querySelectorAll('.images')
+    // let imagesElements2 = document.querySelectorAll('.images2')
+const weatherCondition = document.querySelectorAll('.weather__condition')
+
+const changeBackground = document.getElementById("change__backgr")
+const tomoroDate = document.getElementById('tomorow--date')
+    // Update temperature for each hour
+
+
+const timeNow = new Date();
+console.log(timeNow);
+const getHour = timeNow.getHours();
+// console.log(getHour);
+
+
+
+window.onload = () => {
+
+
+
+    navigator.geolocation.getCurrentPosition((position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${lat},${lon}&days=5#`;
+        // console.log(url);
+
+        fetch(url)
+            .then((Response) => Response.json())
+            .then((data) => {
+
+
+
+
+
+
+                // load page get location
+                const cityName = data.location.name;
+                city.textContent = cityName;
+                // get current temp from location
+                const dataTempNow = data.current.temp_c
+                tempNow.textContent = dataTempNow;
+                // show real date 
+                today.textContent
+
+
+
+                getIconOfWeather(data)
+                today(data)
+                time(data)
+                temperature(data)
+                times(data)
+                images(data)
+                temperature2(data)
+                times2(data)
+                times3(data)
+                images2(data)
+                images3(data)
+                temperature3(data)
+                tomorowDate(data)
+
+
+
+
+
+
+
+
+            });
+    })
+};
+
+btn.addEventListener('click', () => {
+
+    // changeBackground.style.backgroundColor = 'red'
+
+    const searchCity = document.getElementById('search__city').value
+
+
+
+
+    // getIconOfWeather()
+
+    const url2 = `https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${searchCity}&days=5#`;
+    fetch(url2)
+        .then((Response) => Response.json())
+        .then((data) => {
+
+
+            // console.log(url2)
+            cityName = data.location.name;
+            city.textContent = cityName;
+            dataTempNow = data.current.temp_c
+            tempNow.textContent = dataTempNow;
+            getIconOfWeather(data)
+            today(data)
+            time(data)
+            temperature(data)
+            times(data)
+            images(data)
+            temperature2(data)
+            times2(data)
+            times3(data)
+            images2(data)
+            temperature3(data)
+            tomorowDate(data)
+
+
+        })
+})
+
+// function getIconOfWeather(data) {
+//     const getIcon = data.current.condition.icon
+//     const getWeatherConditionBackground = data.current.condition.text
+//     if (getWeatherConditionBackground === 'Clear') {
+//         body.style.backgroundColor = 'red';
+//     }
+//     console.log(getWeatherConditionBackground);
+//     console.log(getWeatherConditionBackground)
+//     const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
+//     nowImage.setAttribute('src', replace);
+// }
+
+// const backgroundWeather = {
+//     Sunny: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg',
+//     overcast: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg'
+// }
+
+function getIconOfWeather(data) {
+    // changeBackground.style.backgroundPosition = "center";
+    // changeBackground.style.backgroundRepeat = "no-repeat";
+    // changeBackground.style.backgroundSize = "100% 100%";
+    // changeBackground.style.height = "100vh";
+
+    const getIcon = data.current.condition.icon;
+    const getWeatherConditionBackground = data.current.condition.text;
+
+    // switch (getWeatherConditionBackground) {
+    //     case 'Sunny':
+    //         changeBackground.style.background = `url(${backgroundWeather.Sunny}) center/cover no-repeat`;
+    //         break;
+    //     case 'Overcast':
+    //         changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
+    //         break;
+    //         // Add more cases for other weather conditions if needed
+    //     default:
+    //         // Handle the default case or fallback image
+    //         break;
+    // }
+
+    const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
+    nowImage.setAttribute('src', replace);
+}
+
+// why background color not change
+
+function today(data) {
+    const getDate = data.location.localtime
+    const justDate = getDate.split(' ')[0]
+    todayDate.textContent = justDate
+        // console.log(justDate)
+
+
+
+}
+
+function tomorowDate(data) {
+    const getTomorowDate = data.forecast.forecastday[1].date
+    console.log(getTomorowDate)
+    tomoroDate.textContent = getTomorowDate
+}
+
+
+// location current time
+
+function time(data) {
+    const getLiveTime = data.location.localtime
+        // console.log(getLiveTime)
+    const localTime = getLiveTime.split(' ')[1]
+
+    liveTime.textContent = localTime
+        // console.log(localTime)
+    const liveTime2 = parseInt(getLiveTime.split(' ')[1].split(':')[0])
+        // console.log(liveTime2)
+
+
+    // if (localTime < getHour) {
+    //     weatherCondition[k].style.display = 'none';
+    // } else {
+    //     weatherCondition[k].style.display = 'block';
+    // }
+
+    // const realTime = timehour.time;
+    // console.log(realTime)
+    // const realtime2 = realTime.split(' ')[1]
+    // console.log(realtime2)
+    // const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
+    // console.log(corectTime)
+
+
+
+    // if (localTime < getHour) {
+    //     weatherCondition[k].style.display = 'none';
+    // } else {
+    //     weatherCondition[k].style.display = 'block';
+    // }
+}
+
+
+// temperature of location
+function temperature(data) {
+    for (let i = 0; i < 24; i++) {
+        const hour = data.forecast.forecastday[0].hour[i];
+
+
+
+        // console.log(hour)
+        let temp = hour.temp_c;
+        temp += 1.3;
+
+        const math = Math.round(temp)
+            // console.log(temp)
+        tempDegrs[i].textContent = math;
+        // console.log(tempDegres)
+
+
+    }
+}
+
+
+
+
+
+function temperature2(data) {
+    for (let i = 0; i < 23; i++) {
+        const hour = data.forecast.forecastday[1].hour[i];
+        // forecast.forecastday[1].hour[4].temp_c
+        // console.log(hour)
+        let temp = hour.temp_c;
+        temp += 1;
+        console.log(temp)
+        const math = Math.round(temp)
+            // console.log(temp)
+        tempDegrs2[i].textContent = math;
+        // console.log(tempDegres)
+    }
+}
+
+function temperature3(data) {
+    for (let i = 0; i < 24; i++) {
+        const hour = data.forecast.forecastday[1].hour[i];
+        // forecast.forecastday[1].hour[4].temp_c
+        // console.log(hour)
+        let temp = hour.temp_c;
+        temp += 1;
+        console.log(temp)
+        const math = Math.round(temp)
+            // console.log(temp)
+        tempDegrs3[i].textContent = math;
+        // console.log(tempDegres)
+    }
+}
+
+
+// const timeNow = new Date();
+// console.log(timeNow);
+// const getHour = timeNow.getHours();
+// console.log(getHour);
+
+function times(data) {
+
+    for (let i = 0; i < 24; i++) {
+
+        const timehour = data.forecast.forecastday[0].hour[i];
+        // console.log(hour)
+        const realTime = timehour.time;
+        // console.log(realTime)
+        const realtime2 = realTime.split(' ')[1]
+            // console.log(realtime2)
+        const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
+            // console.log(corectTime)
+
+        if (corectTime < getHour) {
+            weatherCondition[i].style.display = 'none';
+        } else {
+            weatherCondition[i].style.display = 'block';
+        }
+
+
+        timeHourly[i].textContent = realtime2;
+        // console.log(timeHourly)
+    }
+}
+
+function times2(data) {
+    // const timeNow = new Date();
+    // console.log(timeNow);
+    // const getHour = timeNow.getHours();
+    // console.log(getHour);
+
+    for (let i = 0; i < 23; i++) {
+
+        const timehour2 = data.forecast.forecastday[1].hour[i];
+        // console.log(hour)
+        const realTime = timehour2.time;
+        // console.log(realTime)
+        const realtime2 = realTime.split(' ')[1]
+            // const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
+            // console.log(corectTime)
+
+        // if (corectTime < getHour) {
+        //     weatherCondition[i].style.display = 'none';
+        // } else {
+        //     weatherCondition[i].style.display = 'block';
+        // }
+
+
+        timeHourly2[i].textContent = realtime2;
+        // console.log(timeHourly)
+    }
+}
+
+function times3(data) {
+    // const timeNow = new Date();
+    // console.log(timeNow);
+    // const getHour = timeNow.getHours();
+    // console.log(getHour);
+
+    for (let i = 0; i < 24; i++) {
+
+        const timehour2 = data.forecast.forecastday[1].hour[i];
+        // console.log(hour)
+        const realTime = timehour2.time;
+        // console.log(realTime)
+        const realtime2 = realTime.split(' ')[1]
+            // const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
+            // console.log(corectTime)
+
+        // if (corectTime < getHour) {
+        //     weatherCondition[i].style.display = 'none';
+        // } else {
+        //     weatherCondition[i].style.display = 'block';
+        // }
+
+
+        timeHourly3[i].textContent = realtime2;
+        // console.log(timeHourly)
+    }
+}
+
+
+
+function images(data) {
+    const imagesElements = document.querySelectorAll('.images');
+
+    for (let i = 0; i < 24; i++) {
+        const currentImage = data.forecast.forecastday[0].hour[i];
+        const realTimes = currentImage.condition.icon;
+        // console.log(realTimes)
+        const cutRealtimes = realTimes.substring(35)
+            // console.log(cutRealtimes)
+        imagesElements[i].setAttribute('src', `images/64x64/${cutRealtimes}`);
+    }
+}
+
+function images2(data) {
+    const imagesElements2 = document.querySelectorAll('.images2');
+    for (let x = 0; x < 23; x++) {
+        const currentImage = data.forecast.forecastday[1].hour[x];
+        const realTimes = currentImage.condition.icon;
+        // console.log(realTimes)
+        const cutRealtimes2 = realTimes.substring(35)
+            // console.log(cutRealtimes2)
+        imagesElements2[x].setAttribute('src', `images/64x64/${cutRealtimes2}`);
+        // console.log(imagesElements2[x])
+    }
+}
+
+function images3(data) {
+    const imagesElements3 = document.querySelectorAll('.images3');
+    for (let x = 0; x < 24; x++) {
+        const currentImage = data.forecast.forecastday[1].hour[x];
+        const realTimes = currentImage.condition.icon;
+        // console.log(realTimes)
+        const cutRealtimes2 = realTimes.substring(35)
+            // console.log(cutRealtimes2)
+        imagesElements3[x].setAttribute('src', `images/64x64/${cutRealtimes2}`);
+        // console.log(imagesElements2[x])
+    }
+}
