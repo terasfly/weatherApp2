@@ -23,8 +23,10 @@ const timeHourly3 = document.querySelectorAll('.time__hourly3')
     // let imagesElements = document.querySelectorAll('.images')
     // let imagesElements2 = document.querySelectorAll('.images2')
 const weatherCondition = document.querySelectorAll('.weather__condition')
+    // const weatherCondition2 = document.querySelectorAll('.weather__condition2')
 
 const changeBackground = document.getElementById("change__backgr")
+
 const tomoroDate = document.getElementById('tomorow--date')
     // Update temperature for each hour
 
@@ -32,7 +34,7 @@ const tomoroDate = document.getElementById('tomorow--date')
 const timeNow = new Date();
 console.log(timeNow);
 const getHour = timeNow.getHours();
-// console.log(getHour);
+console.log(getHour);
 
 
 
@@ -79,6 +81,8 @@ window.onload = () => {
                 images3(data)
                 temperature3(data)
                 tomorowDate(data)
+                localTime(data)
+
 
 
 
@@ -111,8 +115,10 @@ btn.addEventListener('click', () => {
             // console.log(url2)
             cityName = data.location.name;
             city.textContent = cityName;
-            dataTempNow = data.current.temp_c
+            dataTempNow = Math.round(data.current.temp_c)
+
             tempNow.textContent = dataTempNow;
+            // console.log(tempNow)
             getIconOfWeather(data)
             today(data)
             time(data)
@@ -125,49 +131,72 @@ btn.addEventListener('click', () => {
             images2(data)
             temperature3(data)
             tomorowDate(data)
+            localTime(data)
+
+            // localTimeBlocks(data)
 
 
         })
 })
-
-// function getIconOfWeather(data) {
-//     const getIcon = data.current.condition.icon
-//     const getWeatherConditionBackground = data.current.condition.text
-//     if (getWeatherConditionBackground === 'Clear') {
-//         body.style.backgroundColor = 'red';
-//     }
-//     console.log(getWeatherConditionBackground);
-//     console.log(getWeatherConditionBackground)
-//     const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
-//     nowImage.setAttribute('src', replace);
-// }
-
-// const backgroundWeather = {
-//     Sunny: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg',
-//     overcast: 'images/64x64/day/sam-schooler-E9aetBe2w40-unsplash.jpg'
-// }
+const backgroundWeather = {
+    Sunny: 'images/64x64/night/sunny.jpg',
+    clear: 'images/64x64/night/nightClear.jpg',
+    rain: 'images/64x64/night/rain.jpg',
+    cloudy: 'images/64x64/night/nightCloudy.jpg'
+}
 
 function getIconOfWeather(data) {
-    // changeBackground.style.backgroundPosition = "center";
-    // changeBackground.style.backgroundRepeat = "no-repeat";
-    // changeBackground.style.backgroundSize = "100% 100%";
-    // changeBackground.style.height = "100vh";
 
+    // const localTimeHour = parseInt(data.location.localtime.split(' ')[1].substring(0, 2));
+
+    const localTime = data.location.localtime
+    const localTimeArray = localTime.split(' ')
+    const localTimeNow = localTimeArray[1].substring(0, 2)
+    const localTimeNumber = parseInt(localTimeNow)
+
+
+
+    // console.log(localTimeNumber)
     const getIcon = data.current.condition.icon;
+
+
+
     const getWeatherConditionBackground = data.current.condition.text;
 
-    // switch (getWeatherConditionBackground) {
-    //     case 'Sunny':
-    //         changeBackground.style.background = `url(${backgroundWeather.Sunny}) center/cover no-repeat`;
-    //         break;
-    //     case 'Overcast':
-    //         changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
-    //         break;
-    //         // Add more cases for other weather conditions if needed
-    //     default:
-    //         // Handle the default case or fallback image
-    //         break;
-    // }
+    switch (getWeatherConditionBackground) {
+        // case 'Sunny':
+        //     changeBackground.style.background = `url(${backgroundWeather.Sunny}) center/cover no-repeat`;
+        //     break;
+        case 'Moderate or heavy rain with thunder':
+        case "Moderate rain at times":
+        case 'Patchy light drizzle':
+        case 'Patchy light rain':
+        case 'Moderate rain':
+        case 'Light rain':
+        case 'Light rain shower':
+        case 'Moderate or heavy rain shower':
+        case 'Torrential rain shower':
+            changeBackground.style.background = `url(${backgroundWeather.rain}) center/cover no-repeat`;
+            break;
+
+
+
+
+        case 'Sunny':
+        case 'Clear':
+            if (localTimeNumber > 5 && localTimeNumber < 22) {
+                changeBackground.style.background = `url(${backgroundWeather.Sunny}) center/cover no-repeat`;
+            } else {
+                changeBackground.style.background = `url(${backgroundWeather.
+                cloudy}) center/cover no-repeat`;
+            }
+            break;
+
+        default:
+            // Handle the default case or fallback image
+            break;
+
+    }
 
     const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
     nowImage.setAttribute('src', replace);
@@ -187,7 +216,7 @@ function today(data) {
 
 function tomorowDate(data) {
     const getTomorowDate = data.forecast.forecastday[1].date
-    console.log(getTomorowDate)
+        // console.log(getTomorowDate)
     tomoroDate.textContent = getTomorowDate
 }
 
@@ -237,7 +266,7 @@ function temperature(data) {
 
         // console.log(hour)
         let temp = hour.temp_c;
-        temp += 1.3;
+        temp += 2;
 
         const math = Math.round(temp)
             // console.log(temp)
@@ -258,8 +287,8 @@ function temperature2(data) {
         // forecast.forecastday[1].hour[4].temp_c
         // console.log(hour)
         let temp = hour.temp_c;
-        temp += 1;
-        console.log(temp)
+        temp += 2;
+        // console.log(temp)
         const math = Math.round(temp)
             // console.log(temp)
         tempDegrs2[i].textContent = math;
@@ -288,18 +317,43 @@ function temperature3(data) {
 // const getHour = timeNow.getHours();
 // console.log(getHour);
 
+//   blokas laikas kas kad weathercondition panaikintu
+
+function localTime(data) {
+    const getLocalTimeHour = parseInt(data.location.localtime.split(' ')[1].split(':')[0]);
+    console.log(getLocalTimeHour);
+
+    for (let i = 0; i < 24; i++) {
+        const forecastHour = parseInt(data.forecast.forecastday[0].hour[i].time.split(' ')[1].split(':')[0]);
+        // console.log(forecastHour)
+
+        if (forecastHour < getLocalTimeHour) {
+            weatherCondition[i].style.display = 'none';
+        } else {
+            weatherCondition[i].style.display = 'block';
+        }
+    }
+}
+
+
+
+
+
+
+
+
 function times(data) {
 
     for (let i = 0; i < 24; i++) {
 
         const timehour = data.forecast.forecastday[0].hour[i];
-        // console.log(hour)
+        // console.log(timehour)
         const realTime = timehour.time;
         // console.log(realTime)
         const realtime2 = realTime.split(' ')[1]
             // console.log(realtime2)
         const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
-            // console.log(corectTime)
+        console.log(corectTime)
 
         if (corectTime < getHour) {
             weatherCondition[i].style.display = 'none';
@@ -313,11 +367,9 @@ function times(data) {
     }
 }
 
+
 function times2(data) {
-    // const timeNow = new Date();
-    // console.log(timeNow);
-    // const getHour = timeNow.getHours();
-    // console.log(getHour);
+
 
     for (let i = 0; i < 23; i++) {
 
