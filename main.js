@@ -176,7 +176,7 @@ function getIconOfWeather(data) {
         case 'Light rain shower':
         case 'Moderate or heavy rain shower':
         case 'Torrential rain shower':
-            case 'Patchy rain possible':
+        case 'Patchy rain possible':
             changeBackground.style.background = `url(${backgroundWeather.rain}) center/cover no-repeat`;
             break;
 
