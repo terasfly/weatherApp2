@@ -142,7 +142,8 @@ const backgroundWeather = {
     Sunny: 'images/64x64/night/sunny.jpg',
     clear: 'images/64x64/night/nightClear.jpg',
     rain: 'images/64x64/night/rain.jpg',
-    cloudy: 'images/64x64/night/nightCloudy.jpg'
+    cloudy: 'images/64x64/night/nightCloudy.jpg',
+    overcast: 'images/64x64/night/overcast.jpg'
 }
 
 function getIconOfWeather(data) {
@@ -176,7 +177,7 @@ function getIconOfWeather(data) {
         case 'Light rain shower':
         case 'Moderate or heavy rain shower':
         case 'Torrential rain shower':
-        case 'Patchy rain possible':
+            // case 'Patchy rain possible':
             changeBackground.style.background = `url(${backgroundWeather.rain}) center/cover no-repeat`;
             break;
 
@@ -192,6 +193,9 @@ function getIconOfWeather(data) {
                 cloudy}) center/cover no-repeat`;
             }
             break;
+        case 'Partly cloudy':
+        case 'Overcast':
+            changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
 
         default:
             // Handle the default case or fallback image
@@ -283,7 +287,7 @@ function temperature(data) {
 
 
 function temperature2(data) {
-    for (let i = 0; i < 23; i++) {
+    for (let i = 0; i < 24; i++) {
         const hour = data.forecast.forecastday[1].hour[i];
         // forecast.forecastday[1].hour[4].temp_c
         // console.log(hour)
@@ -328,8 +332,10 @@ function localTime(data) {
         const forecastHour = parseInt(data.forecast.forecastday[0].hour[i].time.split(' ')[1].split(':')[0]);
         // console.log(forecastHour)
 
-        if (forecastHour < getLocalTimeHour) {
-            weatherCondition[i].style.display = 'none';
+        if (forecastHour <= getLocalTimeHour) {
+            if (i < 23) { // Check if it's not the last hour to avoid out of bounds
+                weatherCondition[i].style.display = 'none'; // hide the next hour
+            }
         } else {
             weatherCondition[i].style.display = 'block';
         }
@@ -356,7 +362,7 @@ function times(data) {
         const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
         console.log(corectTime)
 
-        if (corectTime < getHour) {
+        if (corectTime <= getHour) {
             weatherCondition[i].style.display = 'none';
         } else {
             weatherCondition[i].style.display = 'block';
@@ -372,7 +378,7 @@ function times(data) {
 function times2(data) {
 
 
-    for (let i = 0; i < 23; i++) {
+    for (let i = 0; i < 24; i++) {
 
         const timehour2 = data.forecast.forecastday[1].hour[i];
         // console.log(hour)
@@ -439,7 +445,7 @@ function images(data) {
 
 function images2(data) {
     const imagesElements2 = document.querySelectorAll('.images2');
-    for (let x = 0; x < 23; x++) {
+    for (let x = 0; x < 24; x++) {
         const currentImage = data.forecast.forecastday[1].hour[x];
         const realTimes = currentImage.condition.icon;
         // console.log(realTimes)
