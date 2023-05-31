@@ -95,6 +95,7 @@ window.onload = () => {
     })
 };
 
+
 btn.addEventListener('click', () => {
 
     // changeBackground.style.backgroundColor = 'red'
@@ -195,8 +196,14 @@ function getIconOfWeather(data) {
             break;
         case 'Partly cloudy':
         case 'Overcast':
-            changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
+            if (localTimeNumber > 5 && localTimeNumber < 22) {
+                changeBackground.style.background = `url(${backgroundWeather.overcast}) center/cover no-repeat`;
+            } else {
+                changeBackground.style.background = `url(${backgroundWeather.
+                    cloudy}) center/cover no-repeat`;
 
+            }
+            break;
         default:
             // Handle the default case or fallback image
             break;
