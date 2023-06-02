@@ -30,11 +30,30 @@ const changeBackground = document.getElementById("change__backgr")
 const tomoroDate = document.getElementById('tomorow--date')
     // Update temperature for each hour
 
+const day1 = document.querySelector('.day-1')
+const day2 = document.querySelector('.day-2')
+const day3 = document.querySelector('.day-3')
+
+const futureDay1 = document.getElementById('forecast--date1')
+const futureDay2 = document.getElementById('forecast--date2')
+const futureDay3 = document.getElementById('forecast--date3')
+    // forecast images
+
+// const forecastImage1 = document.querySelector('.forc--image-1')
+// const forecastImage2 = document.querySelector('.forc--image-2')
+// const forecastImage3 = document.querySelector('.forc--image-3')
+
+
 
 const timeNow = new Date();
 console.log(timeNow);
+
+function getTime() {
+
+}
 const getHour = timeNow.getHours();
 console.log(getHour);
+
 
 
 
@@ -82,6 +101,12 @@ window.onload = () => {
                 temperature3(data)
                 tomorowDate(data)
                 localTime(data)
+                futuredays(data)
+                futuredays2(data)
+                futuredays3(data)
+                forecastImage1(data)
+                forecastImage2(data)
+                forecastImage3(data)
 
 
 
@@ -94,6 +119,119 @@ window.onload = () => {
             });
     })
 };
+
+
+
+
+// function getDay1() {
+//     const forecast = new Date()
+
+//     const getDay1 = forecast.getDay()
+
+//     const getday2 = getDay1 + 2;
+
+
+//     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+//     const getWeekday = weekdays[getday2]
+
+//     day1.textContent = getWeekday
+
+// }
+
+// function getDay2() {
+//     const forecast = new Date()
+
+//     const getDay1 = forecast.getDay()
+
+//     const getday2 = getDay1 + 3;
+
+
+//     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+//     const getWeekday = weekdays[getday2]
+
+//     day2.textContent = getWeekday
+
+// }
+
+// function getDay3() {
+//     const forecast = new Date()
+
+//     const getDay1 = forecast.getDay()
+
+//     const getday2 = getDay1 + 4;
+
+
+//     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+//     const getWeekday = weekdays[getday2]
+
+//     day3.textContent = getWeekday
+
+// }
+function futuredays(data) {
+    const getfuturedays = data.forecast.forecastday[2].hour[3].time.split(' ')[0].substring(5, 10);
+
+    console.log(getfuturedays)
+        // let corectdays = getfuturedays.split(' ')[0]
+        // console.log(corectdays)
+        // const corectdays1 = corectdays.substring(5, 10)
+        // console.log(corectdays1)
+    futureDay1.textContent = getfuturedays;
+
+}
+
+function futuredays2(data) {
+    const getfuturedays = data.forecast.forecastday[3].hour[1].time.split(' ')[0].substring(5, 10);
+
+    console.log(getfuturedays)
+        // let corectdays = getfuturedays.split(' ')[0]
+        // console.log(corectdays)
+        // const corectdays1 = corectdays.substring(5, 10)
+        // console.log(corectdays1)
+    futureDay2.textContent = getfuturedays;
+
+}
+
+function futuredays3(data) {
+    const getfuturedays = data.forecast.forecastday[4].hour[3].time.split(' ')[0].substring(5, 10);
+
+    console.log(getfuturedays)
+        // let corectdays = getfuturedays.split(' ')[0]
+        // console.log(corectdays)
+        // const corectdays1 = corectdays.substring(5, 10)
+        // console.log(corectdays1)
+    futureDay3.textContent = getfuturedays;
+
+}
+
+function getFutureDay(dayElement, count) {
+    const forecast = new Date()
+    console.log(forecast);
+
+    const today = forecast.getDay()
+    console.log(today);
+
+    const futureDayIndex = (today + count) % 7;
+    console.log(futureDayIndex);
+
+
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    console.log(weekdays);
+
+    const futureDay = weekdays[futureDayIndex]
+    console.log(futureDay)
+
+    dayElement.textContent = futureDay
+}
+
+
+getFutureDay(day1, 2) // The day 2 days from now
+getFutureDay(day2, 3) // The day 3 days from now
+getFutureDay(day3, 4) // The day 4 days from now
+
+
 
 
 btn.addEventListener('click', () => {
@@ -133,8 +271,11 @@ btn.addEventListener('click', () => {
             temperature3(data)
             tomorowDate(data)
             localTime(data)
-
-            // localTimeBlocks(data)
+            forecastImage1(data)
+            forecastImage2(data)
+            forecastImage3(data)
+            weatherConditionNow(data)
+                // localTimeBlocks(data)
 
 
         })
@@ -146,6 +287,19 @@ const backgroundWeather = {
     cloudy: 'images/64x64/night/nightCloudy.jpg',
     overcast: 'images/64x64/night/overcast.jpg'
 }
+
+
+function weatherConditionNow(data) {
+
+
+    const getIcon = data.current.condition.icon;
+    console.log(getIcon)
+    const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
+    nowImage.setAttribute('src', replace);
+
+
+}
+
 
 function getIconOfWeather(data) {
 
@@ -160,7 +314,9 @@ function getIconOfWeather(data) {
 
     // console.log(localTimeNumber)
     const getIcon = data.current.condition.icon;
-
+    console.log(getIcon)
+    const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
+    nowImage.setAttribute('src', replace);
 
 
     const getWeatherConditionBackground = data.current.condition.text;
@@ -210,8 +366,7 @@ function getIconOfWeather(data) {
 
     }
 
-    const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
-    nowImage.setAttribute('src', replace);
+
 }
 
 // why background color not change
@@ -315,7 +470,7 @@ function temperature3(data) {
         // console.log(hour)
         let temp = hour.temp_c;
         temp += 1;
-        console.log(temp)
+        // console.log(temp)
         const math = Math.round(temp)
             // console.log(temp)
         tempDegrs3[i].textContent = math;
@@ -333,7 +488,7 @@ function temperature3(data) {
 
 function localTime(data) {
     const getLocalTimeHour = parseInt(data.location.localtime.split(' ')[1].split(':')[0]);
-    console.log(getLocalTimeHour);
+    // console.log(getLocalTimeHour);
 
     for (let i = 0; i < 24; i++) {
         const forecastHour = parseInt(data.forecast.forecastday[0].hour[i].time.split(' ')[1].split(':')[0]);
@@ -474,4 +629,43 @@ function images3(data) {
         imagesElements3[x].setAttribute('src', `images/64x64/${cutRealtimes2}`);
         // console.log(imagesElements2[x])
     }
+}
+
+// forecast images
+
+// ...
+const forecastImageElement1 = document.querySelector('.forc--image-1');
+const forecastImageElement2 = document.querySelector('.forc--image-2');
+const forecastImageElement3 = document.querySelector('.forc--image-3');
+
+// ...
+
+function forecastImage1(data) {
+    const addImage = data.forecast.forecastday[2].hour[15].condition.icon;
+    console.log(addImage);
+
+    const cutImage = addImage.substring(35);
+    console.log(cutImage);
+    forecastImageElement1.setAttribute('src', `images/64x64/${cutImage}`);
+    console.log(forecastImageElement1);
+}
+
+function forecastImage2(data) {
+    const addImage = data.forecast.forecastday[3].hour[15].condition.icon;
+    console.log(addImage);
+
+    const cutImage = addImage.substring(35);
+    console.log(cutImage);
+    forecastImageElement2.setAttribute('src', `images/64x64/${cutImage}`);
+    console.log(forecastImageElement2);
+}
+
+function forecastImage3(data) {
+    const addImage = data.forecast.forecastday[4].hour[15].condition.icon;
+    console.log(addImage);
+
+    const cutImage = addImage.substring(35);
+    console.log(cutImage);
+    forecastImageElement3.setAttribute('src', `images/64x64/${cutImage}`);
+    console.log(forecastImageElement3);
 }
