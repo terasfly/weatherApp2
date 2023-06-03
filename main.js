@@ -37,6 +37,18 @@ const day3 = document.querySelector('.day-3')
 const futureDay1 = document.getElementById('forecast--date1')
 const futureDay2 = document.getElementById('forecast--date2')
 const futureDay3 = document.getElementById('forecast--date3')
+
+
+
+// forecast day & night degrees
+const dayDegrees1 = document.querySelector('.forecast--day-degrees1')
+const dayDegrees2 = document.querySelector('.forecast--day-degrees2')
+const dayDegrees3 = document.querySelector('.forecast--day-degrees3')
+
+
+const nightDegrees1 = document.querySelector('.forecast--night-degrees1')
+const nightDegrees2 = document.querySelector('.forecast--night-degrees2')
+const nightDegrees3 = document.querySelector('.forecast--night-degrees3')
     // forecast images
 
 // const forecastImage1 = document.querySelector('.forc--image-1')
@@ -641,6 +653,17 @@ const forecastImageElement3 = document.querySelector('.forc--image-3');
 // ...
 
 function forecastImage1(data) {
+    // get days degrees
+
+    const getDaydegrees1 = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
+
+    dayDegrees1.textContent = getDaydegrees1
+
+    // get nights degrees
+
+    const getNigthDegrees1 = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
+    nightDegrees1.textContent = getNigthDegrees1
+
     const addImage = data.forecast.forecastday[2].hour[15].condition.icon;
     console.log(addImage);
 
@@ -651,6 +674,15 @@ function forecastImage1(data) {
 }
 
 function forecastImage2(data) {
+
+    const getDaydegrees = Math.round(data.forecast.forecastday[3].hour[15].temp_c)
+    console.log(getDaydegrees)
+    dayDegrees2.textContent = getDaydegrees
+
+    // get nights degrees
+
+    const getNigthDegrees = Math.round(data.forecast.forecastday[3].hour[4].temp_c)
+    nightDegrees2.textContent = getNigthDegrees
     const addImage = data.forecast.forecastday[3].hour[15].condition.icon;
     console.log(addImage);
 
@@ -661,8 +693,18 @@ function forecastImage2(data) {
 }
 
 function forecastImage3(data) {
+
+    const getDaydegrees = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
+    console.log(getDaydegrees)
+    dayDegrees3.textContent = getDaydegrees
+
+    // get nights degrees
+
+    const getNigthDegrees = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
+    nightDegrees3.textContent = getNigthDegrees
     const addImage = data.forecast.forecastday[4].hour[15].condition.icon;
     console.log(addImage);
+
 
     const cutImage = addImage.substring(35);
     console.log(cutImage);
