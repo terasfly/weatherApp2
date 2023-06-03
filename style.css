@@ -265,6 +265,32 @@
             font-size: 15px;
             transform: translate(-50%, -50%);
         }
+        
+        .forecastDegreesSign {
+            position: relative;
+        }
+        
+        .forecastDegreesSign::after {
+            content: '°';
+            position: absolute;
+            bottom: 2%;
+            left: 126%;
+            font-size: 15px;
+            transform: translate(-50%, -50%);
+        }
+        
+        .forecastDegreesSign1 {
+            position: relative;
+        }
+        
+        .forecastDegreesSign1::after {
+            content: '°';
+            position: absolute;
+            top: 2px;
+            left: 126%;
+            /* font-size: 15px; */
+            transform: translate(-50%, -50%);
+        }
         /* weather short forecast for few days */
         
         .slider-container {
@@ -298,8 +324,9 @@
         }
         
         .forecast--night-temperature {
-            font-size: 15px;
+            font-size: 14px;
             align-items: center;
+            margin-top: 10px;
         }
         
         #forecast--date1,
@@ -316,4 +343,25 @@
         
         .forecast--images {
             margin-top: 25px;
+        }
+        
+        .birthday {
+            color: red;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            padding: 10px;
+            background-color: rgb(57, 156, 223);
+            border-radius: 15px;
+            animation: move 3s infinite alternate;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(50px);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
