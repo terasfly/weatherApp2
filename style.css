@@ -181,6 +181,7 @@
             width: 100%;
             overflow-x: auto;
             margin: 30px auto;
+            /* padding: 0px; */
         }
         
         .slider2 {
@@ -209,12 +210,17 @@
             align-items: center;
             justify-content: center;
             margin-left: 13px;
-            padding: 10px;
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 15px;
+            min-width: 110px;
+            /* min-height: 150px; */
         }
         
         .temp__degrs {
             padding-top: 14px;
             position: relative;
+            color: red;
         }
         
         .temp__degrs::after {
@@ -229,6 +235,7 @@
         .temp__degrs3 {
             padding-top: 14px;
             position: relative;
+            color: red;
         }
         
         .temp__degrs3::after {
@@ -302,15 +309,28 @@
             justify-content: center;
             min-width: 380px;
             padding: 10px;
+            background-color: #ffff;
+            background: transparent;
         }
         
         h3 {
-            font-size: 14px;
+            font-size: 15px;
+            color: #2c2c2c;
+        }
+        
+        .forecast--day {
+            font-size: 12px;
+            color: #2c2c2c;
+            margin-top: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
         
         .forecast--date {
             font-size: 13px;
             margin-bottom: 20px;
+            padding: 5px;
+            /* color: black; */
         }
         
         .slider-item {
@@ -320,7 +340,14 @@
             justify-content: center;
             padding: 10px;
             width: 90px;
-            margin-right: 14px;
+            margin-right: 8px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            border-radius: 15px;
+            min-width: 110px;
+        }
+        
+        .slider-item:last-child {
+            margin-right: 0;
         }
         
         .forecast--night-temperature {
@@ -334,10 +361,11 @@
         #forecast--date3 {
             margin-bottom: 10px;
             font-size: 15px;
+            color: #544949;
         }
         
         .forecast--day {
-            font-size: 20px;
+            font-size: 17px;
             margin-bottom: 7px;
         }
         
@@ -364,4 +392,34 @@
             100% {
                 transform: translateX(0);
             }
+        }
+        
+        .forecast--degrees-sign {
+            position: relative;
+            color: red;
+        }
+        
+        .forecast--degrees-sign::after {
+            content: '°';
+            position: absolute;
+            bottom: 13%;
+            left: 126%;
+            font-size: 15px;
+            transform: translate(-50%, -50%);
+            color: red;
+        }
+        
+        .forecast--degrees-signNight {
+            position: relative;
+            color: green;
+        }
+        
+        .forecast--degrees-signNight::after {
+            content: '°';
+            position: absolute;
+            bottom: 13%;
+            left: 126%;
+            font-size: 12px;
+            transform: translate(-50%, -50%);
+            color: green;
         }
