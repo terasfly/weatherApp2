@@ -787,12 +787,15 @@ function forecastImage1(data) {
 
     const getDaydegrees1 = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
     console.log(getDaydegrees1)
-    dayDegrees1.textContent = getDaydegrees1
-
-    // get nights degrees
+    const add = getDaydegrees1 + 3
+    dayDegrees1.textContent = add
+        // console.log(dayDegrees1)
+        // get nights degrees
 
     const getNigthDegrees1 = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
-    nightDegrees1.textContent = getNigthDegrees1
+    const add1 = getNigthDegrees1 + 2
+    nightDegrees1.textContent = add1
+
 
     switch (true) {
         case (getDaydegrees1 >= 35):
@@ -895,13 +898,16 @@ function forecastImage1(data) {
 function forecastImage2(data) {
 
     const getDaydegrees1 = Math.round(data.forecast.forecastday[3].hour[15].temp_c)
+    const add = getDaydegrees1 + 3
+    dayDegrees2.textContent = add
 
-    dayDegrees2.textContent = getDaydegrees1
 
     // get nights degrees
 
     const getNigthDegrees1 = Math.round(data.forecast.forecastday[3].hour[4].temp_c)
-    nightDegrees2.textContent = getNigthDegrees1
+    const add1 = getNigthDegrees1 + 2
+    nightDegrees2.textContent = add1
+
     const addImage = data.forecast.forecastday[3].hour[15].condition.icon;
     console.log(addImage);
 
@@ -1005,11 +1011,14 @@ function forecastImage3(data) {
     const getDaydegrees1 = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
 
     dayDegrees3.textContent = getDaydegrees1
-
-    // get nights degrees
+    const add = getDaydegrees1 + 3
+    dayDegrees3.textContent = add
+        // get nights degrees
 
     const getNigthDegrees1 = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
-    nightDegrees3.textContent = getNigthDegrees1
+    const add1 = getNigthDegrees1 + 2
+    nightDegrees3.textContent = add1
+
     const addImage = data.forecast.forecastday[4].hour[15].condition.icon;
     console.log(addImage);
     switch (true) {
