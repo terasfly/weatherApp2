@@ -6,7 +6,7 @@ const liveTime = document.getElementById('time__date')
 
 const todayDate = document.getElementById('today__date')
 
-const tempDegres = document.querySelector('.temp__degrs')
+// const tempDegres = document.querySelector('.temp__degrs')
 
 const btn = document.getElementById('btn')
 
@@ -17,6 +17,7 @@ const temp1 = document.querySelector('.temp--1')
 const tempDegrs = document.querySelectorAll('.temp__degrs');
 const tempDegrs2 = document.querySelectorAll('.temp__degrs2');
 const tempDegrs3 = document.querySelectorAll('.temp__degrs3');
+// const tempDegrs33 = document.getElementById('temp__degrs3');
 const timeHourly = document.querySelectorAll('.time__hourly')
 const timeHourly2 = document.querySelectorAll('.time__hourly2')
 const timeHourly3 = document.querySelectorAll('.time__hourly3')
@@ -55,16 +56,22 @@ const nightDegrees3 = document.querySelector('.forecast--night-degrees3')
 // const forecastImage2 = document.querySelector('.forc--image-2')
 // const forecastImage3 = document.querySelector('.forc--image-3')
 
+const forDay = document.querySelectorAll('.forDay')
 
 
+
+
+// change color temperature
+const changeColorTemp = document.querySelector('.changeColorTemperature')
 const timeNow = new Date();
-console.log(timeNow);
+
 
 function getTime() {
 
 }
 const getHour = timeNow.getHours();
 console.log(getHour);
+
 
 
 
@@ -92,10 +99,12 @@ window.onload = () => {
                 const cityName = data.location.name;
                 city.textContent = cityName;
                 // get current temp from location
-                const dataTempNow = data.current.temp_c
-                tempNow.textContent = dataTempNow;
-                // show real date 
-                today.textContent
+                // const dataTempNow = data.current.temp_c
+                // console.log(dataTempNow)
+                // tempNow.textContent = dataTempNow;
+                // // show real date 
+
+                // today.textContent
 
 
 
@@ -119,8 +128,13 @@ window.onload = () => {
                 forecastImage1(data)
                 forecastImage2(data)
                 forecastImage3(data)
+                temperatureNow(data)
+                changeColorByTemp(data)
+                    // forecastDayTemp(data)
+                    // loopforecastDays(data)
 
 
+                // loopforecastDays(data)
 
 
 
@@ -133,6 +147,23 @@ window.onload = () => {
 };
 
 
+function temperatureNow(data) {
+
+
+
+    const dataTempNow = data.current.temp_c
+    console.log(dataTempNow)
+    tempNow.textContent = dataTempNow;
+    // show real date 
+
+    today.textContent
+
+}
+
+function changeColorByTemp(data) {
+    const dataTempNow1 = data.current.temp_c
+    console.log(dataTempNow1)
+}
 
 
 // function getDay1() {
@@ -185,11 +216,11 @@ window.onload = () => {
 function futuredays(data) {
     const getfuturedays = data.forecast.forecastday[2].hour[3].time.split(' ')[0].substring(5, 10);
 
-    console.log(getfuturedays)
-        // let corectdays = getfuturedays.split(' ')[0]
-        // console.log(corectdays)
-        // const corectdays1 = corectdays.substring(5, 10)
-        // console.log(corectdays1)
+    // console.log(getfuturedays)
+    // let corectdays = getfuturedays.split(' ')[0]
+    // console.log(corectdays)
+    // const corectdays1 = corectdays.substring(5, 10)
+    // console.log(corectdays1)
     futureDay1.textContent = getfuturedays;
 
 }
@@ -197,11 +228,11 @@ function futuredays(data) {
 function futuredays2(data) {
     const getfuturedays = data.forecast.forecastday[3].hour[1].time.split(' ')[0].substring(5, 10);
 
-    console.log(getfuturedays)
-        // let corectdays = getfuturedays.split(' ')[0]
-        // console.log(corectdays)
-        // const corectdays1 = corectdays.substring(5, 10)
-        // console.log(corectdays1)
+    // console.log(getfuturedays)
+    // let corectdays = getfuturedays.split(' ')[0]
+    // console.log(corectdays)
+    // const corectdays1 = corectdays.substring(5, 10)
+    // console.log(corectdays1)
     futureDay2.textContent = getfuturedays;
 
 }
@@ -209,31 +240,31 @@ function futuredays2(data) {
 function futuredays3(data) {
     const getfuturedays = data.forecast.forecastday[4].hour[3].time.split(' ')[0].substring(5, 10);
 
-    console.log(getfuturedays)
-        // let corectdays = getfuturedays.split(' ')[0]
-        // console.log(corectdays)
-        // const corectdays1 = corectdays.substring(5, 10)
-        // console.log(corectdays1)
+    // console.log(getfuturedays)
+    // let corectdays = getfuturedays.split(' ')[0]
+    // console.log(corectdays)
+    // const corectdays1 = corectdays.substring(5, 10)
+    // console.log(corectdays1)
     futureDay3.textContent = getfuturedays;
 
 }
 
 function getFutureDay(dayElement, count) {
     const forecast = new Date()
-    console.log(forecast);
+        // console.log(forecast);
 
     const today = forecast.getDay()
-    console.log(today);
+        // console.log(today);
 
     const futureDayIndex = (today + count) % 7;
-    console.log(futureDayIndex);
+    // console.log(futureDayIndex);
 
 
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    console.log(weekdays);
+        // console.log(weekdays);
 
     const futureDay = weekdays[futureDayIndex]
-    console.log(futureDay)
+        // console.log(futureDay)
 
     dayElement.textContent = futureDay
 }
@@ -287,6 +318,8 @@ btn.addEventListener('click', () => {
             forecastImage2(data)
             forecastImage3(data)
             weatherConditionNow(data)
+            changeColorByTemp(data)
+                // loopforecastDays(data)
                 // localTimeBlocks(data)
 
 
@@ -326,7 +359,7 @@ function getIconOfWeather(data) {
 
     // console.log(localTimeNumber)
     const getIcon = data.current.condition.icon;
-    console.log(getIcon)
+    // console.log(getIcon)
     const replace = getIcon.replace('//cdn.weatherapi.com/weather', 'images')
     nowImage.setAttribute('src', replace);
 
@@ -373,7 +406,7 @@ function getIconOfWeather(data) {
             }
             break;
         default:
-            // Handle the default case or fallback image
+
             break;
 
     }
@@ -387,7 +420,7 @@ function today(data) {
     const getDate = data.location.localtime
     const justDate = getDate.split(' ')[0]
     todayDate.textContent = justDate
-        // console.log(justDate)
+
 
 
 
@@ -395,7 +428,7 @@ function today(data) {
 
 function tomorowDate(data) {
     const getTomorowDate = data.forecast.forecastday[1].date
-        // console.log(getTomorowDate)
+
     tomoroDate.textContent = getTomorowDate
 }
 
@@ -404,35 +437,16 @@ function tomorowDate(data) {
 
 function time(data) {
     const getLiveTime = data.location.localtime
-        // console.log(getLiveTime)
+
     const localTime = getLiveTime.split(' ')[1]
 
     liveTime.textContent = localTime
-        // console.log(localTime)
+
     const liveTime2 = parseInt(getLiveTime.split(' ')[1].split(':')[0])
-        // console.log(liveTime2)
-
-
-    // if (localTime < getHour) {
-    //     weatherCondition[k].style.display = 'none';
-    // } else {
-    //     weatherCondition[k].style.display = 'block';
-    // }
-
-    // const realTime = timehour.time;
-    // console.log(realTime)
-    // const realtime2 = realTime.split(' ')[1]
-    // console.log(realtime2)
-    // const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
-    // console.log(corectTime)
 
 
 
-    // if (localTime < getHour) {
-    //     weatherCondition[k].style.display = 'none';
-    // } else {
-    //     weatherCondition[k].style.display = 'block';
-    // }
+
 }
 
 
@@ -440,21 +454,61 @@ function time(data) {
 function temperature(data) {
     for (let i = 0; i < 24; i++) {
         const hour = data.forecast.forecastday[0].hour[i];
-
-
-
-        // console.log(hour)
         let temp = hour.temp_c;
         temp += 2;
-
-        const math = Math.round(temp)
-            // console.log(temp)
+        const math = Math.round(temp);
         tempDegrs[i].textContent = math;
-        // console.log(tempDegres)
-
-
+        console.log(tempDegrs);
+        switch (true) {
+            case math >= 35:
+                tempDegrs[i].style.color = '#FF0000';
+                break;
+            case math >= 30:
+                tempDegrs[i].style.color = '#FF4500';
+                break;
+            case math >= 25:
+                tempDegrs[i].style.color = '#FF8C00';
+                break;
+            case math >= 20:
+                tempDegrs[i].style.color = '#FFA07A';
+                break;
+            case math >= 15:
+                tempDegrs[i].style.color = '#FFFFE0';
+                break;
+            case math >= 10:
+                tempDegrs[i].style.color = '#D3D3D3';
+                break;
+            case math >= 2:
+                tempDegrs[i].style.color = '#808080';
+                break;
+            case math >= -5:
+                tempDegrs[i].style.color = '#ADD8E6';
+                break;
+            case math >= -10:
+                tempDegrs[i].style.color = '#B0E0E6';
+                break;
+            case math >= -15:
+                tempDegrs[i].style.color = '#87CEEB';
+                break;
+            case math >= -20:
+                tempDegrs[i].style.color = '#0000CD';
+                break;
+            case math >= -25:
+                tempDegrs[i].style.color = '#00008B';
+                break;
+            case math >= -30:
+                tempDegrs[i].style.color = '#000066';
+                break;
+            default:
+                // Choose a default color
+                // tempDegrs[i].style.color = '#000000';
+                break;
+        }
     }
 }
+
+
+
 
 
 
@@ -463,32 +517,114 @@ function temperature(data) {
 function temperature2(data) {
     for (let i = 0; i < 24; i++) {
         const hour = data.forecast.forecastday[1].hour[i];
-        // forecast.forecastday[1].hour[4].temp_c
-        // console.log(hour)
         let temp = hour.temp_c;
         temp += 2;
-        // console.log(temp)
-        const math = Math.round(temp)
-            // console.log(temp)
+        const math = Math.round(temp);
         tempDegrs2[i].textContent = math;
-        // console.log(tempDegres)
+        switch (true) {
+            case (math >= 35):
+                tempDegrs2[i].style.color = '#FF0000';
+                break;
+            case (math >= 30):
+                tempDegrs2[i].style.color = '#FF4500';
+                break;
+            case (math >= 25):
+                tempDegrs2[i].style.color = '#FF8C00';
+                break;
+            case (math >= 20):
+                tempDegrs2[i].style.color = '#FFA07A';
+                break;
+            case (math >= 15):
+                tempDegrs2[i].style.color = '#FFFFE0';
+                break;
+            case (math >= 10):
+                tempDegrs2[i].style.color = '#D3D3D3';
+                break;
+            case (math >= 2):
+                tempDegrs2[i].style.color = '#808080';
+                break;
+            case (math >= -5):
+                tempDegrs2[i].style.color = '#ADD8E6';
+                break;
+            case (math >= -10):
+                tempDegrs2[i].style.color = '#B0E0E6';
+                break;
+            case (math >= -15):
+                tempDegrs2[i].style.color = '#87CEEB';
+                break;
+            case (math >= -20):
+                tempDegrs2[i].style.color = '#0000CD';
+                break;
+            case (math >= -25):
+                tempDegrs2[i].style.color = '#00008B';
+                break;
+            case (math >= -30):
+                tempDegrs2[i].style.color = '#000066';
+                break;
+            default:
+                tempDegrs2[i].style.color = '#000000'; // Choose a default color
+                break;
+        }
     }
 }
+
+
 
 function temperature3(data) {
     for (let i = 0; i < 24; i++) {
         const hour = data.forecast.forecastday[1].hour[i];
-        // forecast.forecastday[1].hour[4].temp_c
-        // console.log(hour)
         let temp = hour.temp_c;
         temp += 1;
-        // console.log(temp)
-        const math = Math.round(temp)
-            // console.log(temp)
+        const math = Math.round(temp);
         tempDegrs3[i].textContent = math;
-        // console.log(tempDegres)
+        switch (true) {
+            case (math >= 35):
+                tempDegrs3[i].style.color = '#FF0000';
+                break;
+            case (math >= 30):
+                tempDegrs3[i].style.color = '#FF4500';
+                break;
+            case (math >= 25):
+                tempDegrs3[i].style.color = '#FF8C00';
+                break;
+            case (math >= 20):
+                tempDegrs3[i].style.color = '#FFA07A';
+                break;
+            case (math >= 15):
+                tempDegrs3[i].style.color = '#FFFFE0';
+                break;
+            case (math >= 10):
+                tempDegrs3[i].style.color = '#D3D3D3';
+                break;
+            case (math >= 2):
+                tempDegrs3[i].style.color = '#808080';
+                break;
+            case (math >= -5):
+                tempDegrs3[i].style.color = '#ADD8E6';
+                break;
+            case (math >= -10):
+                tempDegrs3[i].style.color = '#B0E0E6';
+                break;
+            case (math >= -15):
+                tempDegrs3[i].style.color = '#87CEEB';
+                break;
+            case (math >= -20):
+                tempDegrs3[i].style.color = '#0000CD';
+                break;
+            case (math >= -25):
+                tempDegrs3[i].style.color = '#00008B';
+                break;
+            case (math >= -30):
+                tempDegrs3[i].style.color = '#000066';
+                break;
+            default:
+                tempDegrs3[i].style.color = '#000000'; // Choose a default color
+                break;
+        }
     }
 }
+
+
 
 
 // const timeNow = new Date();
@@ -515,9 +651,6 @@ function localTime(data) {
         }
     }
 }
-
-
-
 
 
 
@@ -585,16 +718,9 @@ function times3(data) {
         const timehour2 = data.forecast.forecastday[1].hour[i];
         // console.log(hour)
         const realTime = timehour2.time;
-        // console.log(realTime)
-        const realtime2 = realTime.split(' ')[1]
-            // const corectTime = parseInt(realTime.split(' ')[1].split(':')[0])
-            // console.log(corectTime)
 
-        // if (corectTime < getHour) {
-        //     weatherCondition[i].style.display = 'none';
-        // } else {
-        //     weatherCondition[i].style.display = 'block';
-        // }
+        const realtime2 = realTime.split(' ')[1]
+
 
 
         timeHourly3[i].textContent = realtime2;
@@ -610,12 +736,14 @@ function images(data) {
     for (let i = 0; i < 24; i++) {
         const currentImage = data.forecast.forecastday[0].hour[i];
         const realTimes = currentImage.condition.icon;
-        // console.log(realTimes)
+
         const cutRealtimes = realTimes.substring(35)
-            // console.log(cutRealtimes)
+
         imagesElements[i].setAttribute('src', `images/64x64/${cutRealtimes}`);
     }
 }
+
+// function for forecast every day
 
 function images2(data) {
     const imagesElements2 = document.querySelectorAll('.images2');
@@ -639,7 +767,7 @@ function images3(data) {
         const cutRealtimes2 = realTimes.substring(35)
             // console.log(cutRealtimes2)
         imagesElements3[x].setAttribute('src', `images/64x64/${cutRealtimes2}`);
-        // console.log(imagesElements2[x])
+
     }
 }
 
@@ -652,17 +780,108 @@ const forecastImageElement3 = document.querySelector('.forc--image-3');
 
 // ...
 
+
+
 function forecastImage1(data) {
     // get days degrees
 
     const getDaydegrees1 = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
-
+    console.log(getDaydegrees1)
     dayDegrees1.textContent = getDaydegrees1
 
     // get nights degrees
 
     const getNigthDegrees1 = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
     nightDegrees1.textContent = getNigthDegrees1
+
+    switch (true) {
+        case (getDaydegrees1 >= 35):
+            dayDegrees1.style.color = '#FF0000';
+            break;
+        case (getDaydegrees1 >= 30):
+            dayDegrees1.style.color = '#FF4500';
+            break;
+        case (getDaydegrees1 >= 25):
+            dayDegrees1.style.color = '#FF8C00';
+            break;
+        case (getDaydegrees1 >= 20):
+            dayDegrees1.style.color = '#FFA07A';
+            break;
+        case (getDaydegrees1 >= 15):
+            dayDegrees1.style.color = '#FFFFE0';
+            break;
+        case (getDaydegrees1 >= 10):
+            dayDegrees1.style.color = '#D3D3D3';
+            break;
+        case (getDaydegrees1 >= 2):
+            dayDegrees1.style.color = '#808080';
+            break;
+        case (getDaydegrees1 >= -5):
+            dayDegrees1.style.color = '#ADD8E6';
+            break;
+        case (getDaydegrees1 >= -10):
+            dayDegrees1.style.color = '#B0E0E6';
+            break;
+        case (getDaydegrees1 >= -15):
+            dayDegrees1.style.color = '#87CEEB';
+            break;
+        case (getDaydegrees1 >= -20):
+            dayDegrees1.style.color = '#0000CD';
+            break;
+        case (getDaydegrees1 >= -25):
+            dayDegrees1.style.color = '#00008B';
+            break;
+        case (getDaydegrees1 >= -30):
+            dayDegrees1.style.color = '#000066';
+            break;
+        default:
+            dayDegrees1.style.color = '#000000'; // Choose a default color
+            break;
+    }
+    switch (true) {
+        case (getNigthDegrees1 >= 35):
+            nightDegrees1.style.color = '#FF0000';
+            break;
+        case (getNigthDegrees1 >= 30):
+            nightDegrees1.style.color = '#FF4500';
+            break;
+        case (getNigthDegrees1 >= 25):
+            nightDegrees1.style.color = '#FF8C00';
+            break;
+        case (getNigthDegrees1 >= 20):
+            nightDegrees1.style.color = '#FFA07A';
+            break;
+        case (getNigthDegrees1 >= 15):
+            nightDegrees1.style.color = '#FFFFE0';
+            break;
+        case (getNigthDegrees1 >= 10):
+            nightDegrees1.style.color = '#D3D3D3';
+            break;
+        case (getNigthDegrees1 >= 2):
+            nightDegrees1.style.color = '#808080';
+            break;
+        case (getNigthDegrees1 >= -5):
+            nightDegrees1.style.color = '#ADD8E6';
+            break;
+        case (getNigthDegrees1 >= -10):
+            nightDegrees1.style.color = '#B0E0E6';
+            break;
+        case (getNigthDegrees1 >= -15):
+            nightDegrees1.style.color = '#87CEEB';
+            break;
+        case (getNigthDegrees1 >= -20):
+            nightDegrees1.style.color = '#0000CD';
+            break;
+        case (getNigthDegrees1 >= -25):
+            nightDegrees1.style.color = '#00008B';
+            break;
+        case (getNigthDegrees1 >= -30):
+            nightDegrees1.style.color = '#000066';
+            break;
+        default:
+            nightDegrees1.style.color = '#000000'; // Choose a default color
+            break;
+    }
 
     const addImage = data.forecast.forecastday[2].hour[15].condition.icon;
     console.log(addImage);
@@ -675,17 +894,106 @@ function forecastImage1(data) {
 
 function forecastImage2(data) {
 
-    const getDaydegrees = Math.round(data.forecast.forecastday[3].hour[15].temp_c)
-    console.log(getDaydegrees)
-    dayDegrees2.textContent = getDaydegrees
+    const getDaydegrees1 = Math.round(data.forecast.forecastday[3].hour[15].temp_c)
+
+    dayDegrees2.textContent = getDaydegrees1
 
     // get nights degrees
 
-    const getNigthDegrees = Math.round(data.forecast.forecastday[3].hour[4].temp_c)
-    nightDegrees2.textContent = getNigthDegrees
+    const getNigthDegrees1 = Math.round(data.forecast.forecastday[3].hour[4].temp_c)
+    nightDegrees2.textContent = getNigthDegrees1
     const addImage = data.forecast.forecastday[3].hour[15].condition.icon;
     console.log(addImage);
 
+
+    switch (true) {
+        case (getDaydegrees1 >= 35):
+            dayDegrees2.style.color = '#FF0000';
+            break;
+        case (getDaydegrees1 >= 30):
+            dayDegrees2.style.color = '#FF4500';
+            break;
+        case (getDaydegrees1 >= 25):
+            dayDegrees2.style.color = '#FF8C00';
+            break;
+        case (getDaydegrees1 >= 20):
+            dayDegrees2.style.color = '#FFA07A';
+            break;
+        case (getDaydegrees1 >= 15):
+            dayDegrees2.style.color = '#FFFFE0';
+            break;
+        case (getDaydegrees1 >= 10):
+            dayDegrees2.style.color = '#D3D3D3';
+            break;
+        case (getDaydegrees1 >= 2):
+            dayDegrees2.style.color = '#808080';
+            break;
+        case (getDaydegrees1 >= -5):
+            dayDegrees2.style.color = '#ADD8E6';
+            break;
+        case (getDaydegrees1 >= -10):
+            dayDegrees2.style.color = '#B0E0E6';
+            break;
+        case (getDaydegrees1 >= -15):
+            dayDegrees2.style.color = '#87CEEB';
+            break;
+        case (getDaydegrees1 >= -20):
+            dayDegrees2.style.color = '#0000CD';
+            break;
+        case (getDaydegrees1 >= -25):
+            dayDegrees2.style.color = '#00008B';
+            break;
+        case (getDaydegrees1 >= -30):
+            dayDegrees2.style.color = '#000066';
+            break;
+        default:
+            dayDegrees2.style.color = '#000000'; // Choose a default color
+            break;
+    }
+    switch (true) {
+        case (getNigthDegrees1 >= 35):
+            nightDegrees2.style.color = '#FF0000';
+            break;
+        case (getNigthDegrees1 >= 30):
+            nightDegrees2.style.color = '#FF4500';
+            break;
+        case (getNigthDegrees1 >= 25):
+            nightDegrees2.style.color = '#FF8C00';
+            break;
+        case (getNigthDegrees1 >= 20):
+            nightDegrees2.style.color = '#FFA07A';
+            break;
+        case (getNigthDegrees1 >= 15):
+            nightDegrees2.style.color = '#FFFFE0';
+            break;
+        case (getNigthDegrees1 >= 10):
+            nightDegrees2.style.color = '#D3D3D3';
+            break;
+        case (getNigthDegrees1 >= 2):
+            nightDegrees2.style.color = '#808080';
+            break;
+        case (getNigthDegrees1 >= -5):
+            nightDegrees2.style.color = '#ADD8E6';
+            break;
+        case (getNigthDegrees1 >= -10):
+            nightDegrees2.style.color = '#B0E0E6';
+            break;
+        case (getNigthDegrees1 >= -15):
+            nightDegrees2.style.color = '#87CEEB';
+            break;
+        case (getNigthDegrees1 >= -20):
+            nightDegrees2.style.color = '#0000CD';
+            break;
+        case (getNigthDegrees1 >= -25):
+            nightDegrees2.style.color = '#00008B';
+            break;
+        case (getNigthDegrees1 >= -30):
+            nightDegrees2.style.color = '#000066';
+            break;
+        default:
+            nightDegrees2.style.color = '#000000'; // Choose a default color
+            break;
+    }
     const cutImage = addImage.substring(35);
     console.log(cutImage);
     forecastImageElement2.setAttribute('src', `images/64x64/${cutImage}`);
@@ -694,20 +1002,176 @@ function forecastImage2(data) {
 
 function forecastImage3(data) {
 
-    const getDaydegrees = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
-    console.log(getDaydegrees)
-    dayDegrees3.textContent = getDaydegrees
+    const getDaydegrees1 = Math.round(data.forecast.forecastday[2].hour[15].temp_c)
+
+    dayDegrees3.textContent = getDaydegrees1
 
     // get nights degrees
 
-    const getNigthDegrees = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
-    nightDegrees3.textContent = getNigthDegrees
+    const getNigthDegrees1 = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
+    nightDegrees3.textContent = getNigthDegrees1
     const addImage = data.forecast.forecastday[4].hour[15].condition.icon;
     console.log(addImage);
-
+    switch (true) {
+        case (getDaydegrees1 >= 35):
+            dayDegrees3.style.color = '#FF0000';
+            break;
+        case (getDaydegrees1 >= 30):
+            dayDegrees3.style.color = '#FF4500';
+            break;
+        case (getDaydegrees1 >= 25):
+            dayDegrees3.style.color = '#FF8C00';
+            break;
+        case (getDaydegrees1 >= 20):
+            dayDegrees3.style.color = '#FFA07A';
+            break;
+        case (getDaydegrees1 >= 15):
+            dayDegrees3.style.color = '#FFFFE0';
+            break;
+        case (getDaydegrees1 >= 10):
+            dayDegrees3.style.color = '#D3D3D3';
+            break;
+        case (getDaydegrees1 >= 2):
+            dayDegrees3.style.color = '#808080';
+            break;
+        case (getDaydegrees1 >= -5):
+            dayDegrees3.style.color = '#ADD8E6';
+            break;
+        case (getDaydegrees1 >= -10):
+            dayDegrees3.style.color = '#B0E0E6';
+            break;
+        case (getDaydegrees1 >= -15):
+            dayDegrees3.style.color = '#87CEEB';
+            break;
+        case (getDaydegrees1 >= -20):
+            dayDegrees3.style.color = '#0000CD';
+            break;
+        case (getDaydegrees1 >= -25):
+            dayDegrees3.style.color = '#00008B';
+            break;
+        case (getDaydegrees1 >= -30):
+            dayDegrees3.style.color = '#000066';
+            break;
+        default:
+            dayDegrees3.style.color = '#000000'; // Choose a default color
+            break;
+    }
+    switch (true) {
+        case (getNigthDegrees1 >= 35):
+            nightDegrees3.style.color = '#FF0000';
+            break;
+        case (getNigthDegrees1 >= 30):
+            nightDegrees3.style.color = '#FF4500';
+            break;
+        case (getNigthDegrees1 >= 25):
+            nightDegrees3.style.color = '#FF8C00';
+            break;
+        case (getNigthDegrees1 >= 20):
+            nightDegrees3.style.color = '#FFA07A';
+            break;
+        case (getNigthDegrees1 >= 15):
+            nightDegrees3.style.color = '#FFFFE0';
+            break;
+        case (getNigthDegrees1 >= 10):
+            nightDegrees3.style.color = '#D3D3D3';
+            break;
+        case (getNigthDegrees1 >= 2):
+            nightDegrees3.style.color = '#808080';
+            break;
+        case (getNigthDegrees1 >= -5):
+            nightDegrees3.style.color = '#ADD8E6';
+            break;
+        case (getNigthDegrees1 >= -10):
+            nightDegrees3.style.color = '#B0E0E6';
+            break;
+        case (getNigthDegrees1 >= -15):
+            nightDegrees3.style.color = '#87CEEB';
+            break;
+        case (getNigthDegrees1 >= -20):
+            nightDegrees3.style.color = '#0000CD';
+            break;
+        case (getNigthDegrees1 >= -25):
+            nightDegrees3.style.color = '#00008B';
+            break;
+        case (getNigthDegrees1 >= -30):
+            nightDegrees3.style.color = '#000066';
+            break;
+        default:
+            nightDegrees3.style.color = '#000000'; // Choose a default color
+            break;
+    }
 
     const cutImage = addImage.substring(35);
     console.log(cutImage);
     forecastImageElement3.setAttribute('src', `images/64x64/${cutImage}`);
     console.log(forecastImageElement3);
 }
+
+
+function changeColorByTemp(data) {
+    const dataTempNow = data.current.temp_c;
+
+    switch (true) {
+        case (dataTempNow >= 35):
+            tempNow.style.color = '#FF0000';
+            break;
+        case (dataTempNow >= 30):
+            tempNow.style.color = '#FF4500';
+            break;
+        case (dataTempNow >= 25):
+            tempNow.style.color = '#FF8C00';
+            break;
+        case (dataTempNow >= 20):
+            tempNow.style.color = '#FFA07A';
+            break;
+        case (dataTempNow >= 15):
+            tempNow.style.color = '#FFFFE0';
+            break;
+        case (dataTempNow >= 10):
+            tempNow.style.color = '#D3D3D3';
+            break;
+        case (dataTempNow >= 2):
+            tempNow.style.color = '#808080';
+            break;
+        case (dataTempNow >= -5):
+            tempNow.style.color = '#ADD8E6';
+            break;
+        case (dataTempNow >= -10):
+            tempNow.style.color = '#B0E0E6';
+            break;
+        case (dataTempNow >= -15):
+            tempNow.style.color = '#87CEEB';
+            break;
+        case (dataTempNow >= -20):
+            tempNow.style.color = '#0000CD';
+            break;
+        case (dataTempNow >= -25):
+            tempNow.style.color = '#00008B';
+            break;
+        case (dataTempNow >= -30):
+            tempNow.style.color = '#000066';
+            break;
+        default:
+            tempNow.style.color = '#000000'; // Choose a default color
+            break;
+    }
+}
+
+
+// function forecastDayTemp(data) {
+//     for (let i = 0; i < forDay.length; i++) {
+//         const corectDay = forDay[i];
+//         console.log(corectDay)
+
+//     }
+// }
+
+// function loopforecastDays(data) {
+//     const loopForecast = document.querySelectorAll('.loopForecast')
+//     console.log(loopForecast)
+//     for (let index = 0; index < 3; index++) {
+//         const getDaydegrees1 = parseInt(Math.round(data.forecast.forecastday[2][i].hour[15].temp_c))
+
+//         console.log(getDaydegrees1)
+//     }
+// }
