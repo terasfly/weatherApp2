@@ -151,9 +151,11 @@ function temperatureNow(data) {
 
 
 
-    const dataTempNow = data.current.temp_c
+    const dataTempNow = Math.round(data.current.temp_c)
     console.log(dataTempNow)
-    tempNow.textContent = dataTempNow;
+    const add3 = dataTempNow + 2
+    tempNow.textContent = add3;
+
     // show real date 
 
     today.textContent
@@ -298,8 +300,8 @@ btn.addEventListener('click', () => {
             cityName = data.location.name;
             city.textContent = cityName;
             dataTempNow = Math.round(data.current.temp_c)
-
-            tempNow.textContent = dataTempNow;
+            const add2 = dataTempNow + 2
+            tempNow.textContent = add2;
             // console.log(tempNow)
             getIconOfWeather(data)
             today(data)
@@ -1119,45 +1121,46 @@ function forecastImage3(data) {
 
 function changeColorByTemp(data) {
     const dataTempNow = data.current.temp_c;
-
+    const add3 = dataTempNow + 2
+    tempNow.textContent = add3;
     switch (true) {
-        case (dataTempNow >= 35):
+        case (add3 >= 35):
             tempNow.style.color = '#FF0000';
             break;
-        case (dataTempNow >= 30):
+        case (add3 >= 30):
             tempNow.style.color = '#FF4500';
             break;
-        case (dataTempNow >= 25):
+        case (add3 >= 25):
             tempNow.style.color = '#FF8C00';
             break;
-        case (dataTempNow >= 20):
+        case (add3 >= 20):
             tempNow.style.color = '#FFA07A';
             break;
-        case (dataTempNow >= 15):
+        case (add3 >= 15):
             tempNow.style.color = '#FFFFE0';
             break;
-        case (dataTempNow >= 10):
+        case (add3 >= 10):
             tempNow.style.color = '#D3D3D3';
             break;
-        case (dataTempNow >= 2):
+        case (add3 >= 2):
             tempNow.style.color = '#808080';
             break;
-        case (dataTempNow >= -5):
+        case (add3 >= -5):
             tempNow.style.color = '#ADD8E6';
             break;
-        case (dataTempNow >= -10):
+        case (add3 >= -10):
             tempNow.style.color = '#B0E0E6';
             break;
-        case (dataTempNow >= -15):
+        case (add3 >= -15):
             tempNow.style.color = '#87CEEB';
             break;
-        case (dataTempNow >= -20):
+        case (add3 >= -20):
             tempNow.style.color = '#0000CD';
             break;
-        case (dataTempNow >= -25):
+        case (add3 >= -25):
             tempNow.style.color = '#00008B';
             break;
-        case (dataTempNow >= -30):
+        case (add3 >= -30):
             tempNow.style.color = '#000066';
             break;
         default:
