@@ -1018,7 +1018,7 @@ function forecastImage3(data) {
         // get nights degrees
 
     const getNigthDegrees1 = Math.round(data.forecast.forecastday[2].hour[4].temp_c)
-    const add1 = getNigthDegrees1 + 2
+    const add1 = getNigthDegrees1 + 1
     nightDegrees3.textContent = add1
 
     const addImage = data.forecast.forecastday[4].hour[15].condition.icon;
@@ -1121,7 +1121,7 @@ function forecastImage3(data) {
 
 function changeColorByTemp(data) {
     const dataTempNow = data.current.temp_c;
-    const add3 = dataTempNow + 2
+    const add3 = dataTempNow + 1
     tempNow.textContent = add3;
     switch (true) {
         case (add3 >= 35):
